@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Generate a fully static site in /out
+  // Produce a fully static site in /out
   output: 'export',
 
-  // Required for next export (no Image Optimization server)
+  // Required when exporting (no Next/Image optimization server)
   images: { unoptimized: true },
 
-  // Helpful in CI (prevents lint from failing the build)
+  // Don’t fail CI on lint only (we lint locally)
   eslint: { ignoreDuringBuilds: true },
 
   reactStrictMode: true,
