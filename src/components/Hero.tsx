@@ -2,20 +2,30 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Container from "@/components/Container";
 import { heroDetails } from "@/data/hero";
+
+const BRAND_BLUE = "#010775";
 
 const Hero: React.FC = () => {
   return (
     <section id="hero" className="relative overflow-hidden">
-      {/* Soft background to avoid empty white */}
+      {/* Full-bleed soft background */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white to-slate-50" />
 
-      <div className="max-w-7xl mx-auto px-6 pt-14 md:pt-16 pb-8">
+      {/* Constrained content */}
+      <Container className="pt-20 md:pt-24 pb-10">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           {/* LEFT */}
           <div className="text-center lg:text-left">
             {/* Kicker */}
-            <span className="inline-flex items-center rounded-full bg-[#010775]/10 px-3.5 py-1.5 text-sm font-semibold tracking-wide text-[#010775]">
+            <span
+              className="inline-flex items-center rounded-full px-3.5 py-1.5 text-sm font-semibold tracking-wide"
+              style={{
+                backgroundColor: `${BRAND_BLUE}1A`, // ~10% alpha
+                color: BRAND_BLUE,
+              }}
+            >
               {heroDetails.kicker ?? "TEMRINK FOR SMBS"}
             </span>
 
@@ -43,8 +53,8 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* RIGHT */}
-          <div className="relative">
+          {/* RIGHT (nudged down a bit on large screens) */}
+          <div className="relative lg:mt-4">
             <div className="aspect-[4/3] w-full rounded-3xl bg-white/70 p-3 ring-1 ring-slate-200 shadow-xl">
               <Image
                 src={heroDetails.centerImageSrc}
@@ -82,7 +92,7 @@ const Hero: React.FC = () => {
             ))}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };
