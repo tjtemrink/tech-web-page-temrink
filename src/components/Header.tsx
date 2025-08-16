@@ -13,7 +13,7 @@ import { menuItems as baseMenuItems } from '@/data/menuItems';
 
 type NavItem = { text: string; url: string };
 
-// normalize any item url to '/#section' (and force 'contact' to '/#contact')
+// Normalize any item url to '/#section' (and force 'contact' to '/#contact')
 function normalizeUrl(url: string): string {
   if (!url) return '/';
   const u = url.trim();
@@ -42,15 +42,25 @@ const Header: React.FC = () => {
   // Smooth-scroll on '/' for '#section' links; default navigation elsewhere
   const handleAnchorClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-      if (pathname === '/' && href.startsWith('/#')) {
-        e.preventDefault();
+      const isHome = pathname === '/' || pathname === '';
+      const isAnchorToHome = href.startsWith('/#');
+
+      if (isHome && isAnchorToHome) {
         const id = href.split('#')[1];
         const el = document.getElementById(id);
+
+        // Only preventDefault if we can actually scroll to an element
         if (el) {
+          e.preventDefault();
           window.history.pushState(null, '', href);
           el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          closeMenu();
+          return;
         }
+        // If not found, just allow normal navigation (no preventDefault)
       }
+
+      // Default navigation for all other cases
       closeMenu();
     },
     [pathname]
@@ -65,6 +75,7 @@ const Header: React.FC = () => {
             href="/#hero"
             aria-label="Temrink home"
             className="flex items-center gap-3"
+            prefetch={false}
             onClick={(e) => handleAnchorClick(e, '/#hero')}
           >
             <Image
