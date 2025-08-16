@@ -1,9 +1,11 @@
+// src/components/Pricing/PricingColumn.tsx
 import clsx from "clsx";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import { IPricing } from "@/types";
 
 interface Props {
-  tier: IPricing;
+  // allow an optional badge on the tier without using `any`
+  tier: IPricing & { badge?: string };
   highlight?: boolean;
 }
 
@@ -17,7 +19,7 @@ function formatPrice(val: IPricing["price"]) {
 }
 
 const PricingColumn: React.FC<Props> = ({ tier, highlight }) => {
-  const { name, price, features, badge } = tier as IPricing & { badge?: string };
+  const { name, price, features, badge } = tier;
 
   const isNumeric = typeof price === "number" || Number.isFinite(Number(price));
   const displayPrice = isNumeric ? `$${formatPrice(price)}` : String(price);
@@ -27,18 +29,20 @@ const PricingColumn: React.FC<Props> = ({ tier, highlight }) => {
     highlight ? "bg-[var(--brand-red)]" : "bg-[var(--brand-blue)]"
   );
 
+  // Strongly-typed CSS variables (avoids `any`)
+  const brandVars =
+    {
+      "--brand-blue": BRAND_BLUE,
+      "--brand-red": BRAND_RED,
+    } as React.CSSProperties & Record<"--brand-blue" | "--brand-red", string>;
+
   return (
     <div
       className={clsx(
         "w-full max-w-sm mx-auto bg-white rounded-xl border border-gray-200 lg:max-w-full",
         { "shadow-lg": highlight }
       )}
-      style={
-        {
-          ["--brand-blue" as any]: BRAND_BLUE,
-          ["--brand-red" as any]: BRAND_RED,
-        } as React.CSSProperties
-      }
+      style={brandVars}
     >
       <div className="p-6 border-b border-gray-200 rounded-t-xl">
         {/* Badge (optional) */}
@@ -71,7 +75,10 @@ const PricingColumn: React.FC<Props> = ({ tier, highlight }) => {
         <ul className="space-y-4 mb-8">
           {features.map((feature, index) => (
             <li key={index} className="flex items-center">
-              <BsFillCheckCircleFill className="h-5 w-5 mr-2" style={{ color: BRAND_BLUE }} />
+              <BsFillCheckCircleFill
+                className="h-5 w-5 mr-2"
+                style={{ color: BRAND_BLUE }}
+              />
               <span className="text-foreground-accent">{feature}</span>
             </li>
           ))}

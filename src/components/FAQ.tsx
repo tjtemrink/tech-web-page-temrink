@@ -1,14 +1,24 @@
+// src/components/FAQ.tsx
 "use client";
 
+import React from "react";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import { BiMinus, BiPlus } from "react-icons/bi";
 import SectionTitle from "./SectionTitle";
 import { faqs } from "@/data/faq";
+import type { IFAQ } from "@/types";
 
 const BRAND_BLUE = "#010775";
 const BRAND_RED = "#DD0000";
 
 const FAQ: React.FC = () => {
+  // Strongly-typed CSS variables (no `any`)
+  const brandVars =
+    {
+      "--brand-blue": BRAND_BLUE,
+      "--brand-red": BRAND_RED,
+    } as React.CSSProperties & Record<"--brand-blue" | "--brand-red", string>;
+
   return (
     <section id="faq" className="py-10 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 flex flex-col lg:flex-row gap-10">
@@ -28,12 +38,7 @@ const FAQ: React.FC = () => {
           <a
             href="mailto:consulting@temrink.com"
             className="mt-3 block text-xl lg:text-3xl font-semibold text-[color:var(--brand-blue)] hover:text-[color:var(--brand-red)] underline decoration-2 underline-offset-4 text-center lg:text-left"
-            style={
-              {
-                ["--brand-blue" as any]: BRAND_BLUE,
-                ["--brand-red" as any]: BRAND_RED,
-              } as React.CSSProperties
-            }
+            style={brandVars}
           >
             consulting@temrink.com
           </a>
@@ -41,10 +46,10 @@ const FAQ: React.FC = () => {
 
         {/* Right column */}
         <div className="w-full lg:max-w-2xl mx-auto border-b border-slate-200">
-          {faqs.map((faq, index) => (
+          {faqs.map((faq: IFAQ, index: number) => (
             <div key={index} className="mb-7">
               <Disclosure>
-                {({ open }) => (
+                {({ open }: { open: boolean }) => (
                   <>
                     <DisclosureButton className="flex items-center justify-between w-full px-4 pt-7 text-left border-t border-slate-200">
                       <span className="text-xl lg:text-2xl font-semibold text-slate-900">

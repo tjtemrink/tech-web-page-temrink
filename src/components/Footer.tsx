@@ -28,6 +28,13 @@ const EMAIL = resolveEmail(footerDetails.email);
 const PHONE = footerDetails.telephone || process.env.NEXT_PUBLIC_TEMRINK_PHONE || "";
 
 const Footer: React.FC = () => {
+  // Strongly typed CSS variables (no `any`)
+  const brandVars =
+    {
+      "--brand-blue": BRAND_BLUE,
+      "--brand-red": BRAND_RED,
+    } as React.CSSProperties & Record<"--brand-blue" | "--brand-red", string>;
+
   return (
     <footer className="bg-hero-background text-foreground pt-10 pb-6">
       <div className="mx-auto w-full max-w-7xl px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -35,7 +42,7 @@ const Footer: React.FC = () => {
         <div>
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/images/temrink-logo.png"   // ensure this exists (SVG preferred)
+              src="/images/temrink-logo.png" // ensure this exists (SVG preferred)
               alt="Temrink"
               width={160}
               height={40}
@@ -54,13 +61,15 @@ const Footer: React.FC = () => {
         <nav aria-label="Footer">
           <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
           <ul className="text-foreground-accent">
-            {footerDetails.quickLinks.map((link) => (
-              <li key={link.text} className="mb-2">
-                <Link href={link.url} className="hover:text-foreground">
-                  {link.text}
-                </Link>
-              </li>
-            ))}
+            {footerDetails.quickLinks.map(
+              (link: { text: string; url: string }) => (
+                <li key={link.text} className="mb-2">
+                  <Link href={link.url} className="hover:text-foreground">
+                    {link.text}
+                  </Link>
+                </li>
+              )
+            )}
           </ul>
         </nav>
 
@@ -71,12 +80,7 @@ const Footer: React.FC = () => {
           <a
             href={`mailto:${EMAIL}`}
             className="block font-semibold text-[color:var(--brand-blue)] hover:text-[color:var(--brand-red)]"
-            style={
-              {
-                ["--brand-blue" as any]: BRAND_BLUE,
-                ["--brand-red" as any]: BRAND_RED,
-              } as React.CSSProperties
-            }
+            style={brandVars}
             aria-label="Email Temrink"
           >
             {EMAIL}
@@ -98,19 +102,20 @@ const Footer: React.FC = () => {
 
           {footerDetails.socials && (
             <div className="mt-5 flex items-center gap-5 md:justify-end flex-wrap">
-              {Object.entries(footerDetails.socials).map(([platformName, url]) =>
-                url ? (
-                  <Link
-                    href={url}
-                    key={platformName}
-                    aria-label={platformName}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:opacity-80"
-                  >
-                    {getPlatformIconByName(platformName)}
-                  </Link>
-                ) : null
+              {Object.entries(footerDetails.socials).map(
+                ([platformName, url]: [string, string | undefined]) =>
+                  url ? (
+                    <Link
+                      href={url}
+                      key={platformName}
+                      aria-label={platformName}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:opacity-80"
+                    >
+                      {getPlatformIconByName(platformName)}
+                    </Link>
+                  ) : null
               )}
             </div>
           )}
@@ -120,8 +125,8 @@ const Footer: React.FC = () => {
       {/* Bottom bar – credits removed */}
       <div className="mt-8 md:text-center text-foreground-accent px-6">
         <p>
-          Copyright &copy; {new Date().getFullYear()} {siteDetails.siteName}. All rights
-          reserved.
+          Copyright &copy; {new Date().getFullYear()} {siteDetails.siteName}. All
+          rights reserved.
         </p>
       </div>
     </footer>
