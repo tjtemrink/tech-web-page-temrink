@@ -13,13 +13,18 @@ import { menuItems as baseMenuItems } from '@/data/menuItems';
 
 type NavItem = { text: string; url: string };
 
-// Normalize any item url to '/#section' (and force 'contact' to '/#contact')
+// Normalize item URLs; DO NOT force contact to #contact anymore
 function normalizeUrl(url: string): string {
   if (!url) return '/';
   const u = url.trim();
-  if (u === '/contact' || u === 'contact' || u === '#contact') return '/#contact';
+
+  // Explicitly allow the Contact PAGE
+  if (u === '/contact' || u === 'contact') return '/contact';
+
+  // Keep anchors as '/#section'
   if (u.startsWith('/#')) return u;
   if (u.startsWith('#')) return `/${u}`;
+
   return u;
 }
 
@@ -27,19 +32,28 @@ const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  // Inject "Home" as the first item and normalize all anchors to '/#...'
+  // Inject "Home" and map Contact to /contact; others normalized
   const navItems: NavItem[] = useMemo(() => {
-    const items = baseMenuItems.map<NavItem>((i: any) => ({
-      text: i.text,
-      url: normalizeUrl(String(i.url ?? '')),
-    }));
+    const items = baseMenuItems.map<NavItem>((i: any) => {
+      const text = String(i.text ?? '');
+      let url = String(i.url ?? '');
+
+      // Force Contact (by label) to be a page route
+      if (text.toLowerCase() === 'contact') {
+        url = '/contact';
+      } else {
+        url = normalizeUrl(url);
+      }
+      return { text, url };
+    });
+
     return [{ text: 'Home', url: '/#hero' }, ...items];
   }, []);
 
   const toggleMenu = () => setIsOpen((v) => !v);
   const closeMenu = () => setIsOpen(false);
 
-  // Smooth-scroll on '/' for '#section' links; default navigation elsewhere
+  // Smooth-scroll only on "/" and only for '/#...' anchors
   const handleAnchorClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
       const isHome = pathname === '/' || pathname === '';
@@ -49,7 +63,6 @@ const Header: React.FC = () => {
         const id = href.split('#')[1];
         const el = document.getElementById(id);
 
-        // Only preventDefault if we can actually scroll to an element
         if (el) {
           e.preventDefault();
           window.history.pushState(null, '', href);
@@ -57,10 +70,9 @@ const Header: React.FC = () => {
           closeMenu();
           return;
         }
-        // If not found, just allow normal navigation (no preventDefault)
       }
 
-      // Default navigation for all other cases
+      // For normal routes (e.g., /contact) just close and let Link navigate
       closeMenu();
     },
     [pathname]
@@ -79,7 +91,7 @@ const Header: React.FC = () => {
             onClick={(e) => handleAnchorClick(e, '/#hero')}
           >
             <Image
-              src={siteDetails.siteLogo} // /images/temrink-logo.png
+              src={siteDetails.siteLogo}
               alt="Temrink"
               width={160}
               height={36}
@@ -97,18 +109,24 @@ const Header: React.FC = () => {
                   href={item.url}
                   className="text-foreground hover:text-foreground-accent transition-colors"
                   prefetch={false}
-                  onClick={(e) => handleAnchorClick(e, item.url)}
+                  // Only pass the smooth-scroll handler for anchors
+                  onClick={
+                    item.url.startsWith('/#')
+                      ? (e) => handleAnchorClick(e, item.url)
+                      : () => closeMenu()
+                  }
                 >
                   {item.text}
                 </Link>
               </li>
             ))}
             <li>
+              {/* CTA should go to the Contact PAGE */}
               <Link
-                href="/#contact"
+                href="/contact"
                 className="text-black bg-primary hover:bg-primary-accent px-8 py-3 rounded-full transition-colors"
                 prefetch={false}
-                onClick={(e) => handleAnchorClick(e, '/#contact')}
+                onClick={() => closeMenu()}
               >
                 Get a demo
               </Link>
@@ -153,7 +171,11 @@ const Header: React.FC = () => {
                   href={item.url}
                   className="text-foreground hover:text-primary block"
                   prefetch={false}
-                  onClick={(e) => handleAnchorClick(e, item.url)}
+                  onClick={
+                    item.url.startsWith('/#')
+                      ? (e) => handleAnchorClick(e, item.url)
+                      : () => closeMenu()
+                  }
                 >
                   {item.text}
                 </Link>
@@ -161,10 +183,10 @@ const Header: React.FC = () => {
             ))}
             <li>
               <Link
-                href="/#contact"
+                href="/contact"
                 className="text-black bg-primary hover:bg-primary-accent px-5 py-2 rounded-full block w-fit"
                 prefetch={false}
-                onClick={(e) => handleAnchorClick(e, '/#contact')}
+                onClick={() => closeMenu()}
               >
                 Get a demo
               </Link>

@@ -1,10 +1,9 @@
 // src/components/Pricing/PricingColumn.tsx
 import clsx from "clsx";
-import { BsFillCheckCircleFill } from "react-icons/bs";
+import { HiCheck } from "react-icons/hi2";
 import { IPricing } from "@/types";
 
 interface Props {
-  // allow an optional badge on the tier without using `any`
   tier: IPricing & { badge?: string };
   highlight?: boolean;
 }
@@ -29,7 +28,7 @@ const PricingColumn: React.FC<Props> = ({ tier, highlight }) => {
     highlight ? "bg-[var(--brand-red)]" : "bg-[var(--brand-blue)]"
   );
 
-  // Strongly-typed CSS variables (avoids `any`)
+  // Strongly-typed CSS variables
   const brandVars =
     {
       "--brand-blue": BRAND_BLUE,
@@ -72,14 +71,14 @@ const PricingColumn: React.FC<Props> = ({ tier, highlight }) => {
         <p className="font-bold mb-0">FEATURES</p>
         <p className="text-foreground-accent mb-5">Everything in basic, plus...</p>
 
-        <ul className="space-y-4 mb-8">
+        {/* Uniform checkmarks */}
+        <ul className="list-none space-y-3 mb-8">
           {features.map((feature, index) => (
-            <li key={index} className="flex items-center">
-              <BsFillCheckCircleFill
-                className="h-5 w-5 mr-2"
-                style={{ color: BRAND_BLUE }}
-              />
-              <span className="text-foreground-accent">{feature}</span>
+            <li key={index} className="flex items-start gap-3">
+              <span className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[color:var(--brand-blue)] text-white">
+                <HiCheck size={14} aria-hidden="true" />
+              </span>
+              <span className="text-foreground-accent leading-6">{feature}</span>
             </li>
           ))}
         </ul>

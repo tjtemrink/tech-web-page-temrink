@@ -10,6 +10,98 @@ import Stats from "@/components/Stats";
 // REMOVE: import CTA from "@/components/CTA";
 import MicrosoftBanner from "@/components/MicrosoftBanner";
 
+/** AI quick summary rows (clean + simple) */
+type AIRow = {
+  solution: string;
+  type: string;
+  keyFeatures: string[];
+  notes?: string;
+};
+
+const aiRows: AIRow[] = [
+  {
+    solution: "Microsoft 365 Copilot",
+    type: "Productivity AI (suite)",
+    keyFeatures: [
+      "In-app help across Word, Excel, PowerPoint, Outlook, Teams",
+      "Drafting, summarizing, meeting notes, data analysis",
+    ],
+  },
+  {
+    solution: "Copilot for Sales",
+    type: "Role-based (Sales)",
+    keyFeatures: [
+      "Works with Dynamics 365 or Salesforce",
+      "Email/meeting prep, CRM updates, opp & account summaries",
+    ],
+  },
+  {
+    solution: "Copilot for Service",
+    type: "Role-based (Support)",
+    keyFeatures: [
+      "Draft responses, case summaries",
+      "Integrates with existing contact center & knowledge",
+    ],
+  },
+  {
+    solution: "Microsoft Security Copilot",
+    type: "Security AI (SOC assistant)",
+    keyFeatures: [
+      "Incident triage, investigation & threat hunting",
+      "Works with Microsoft Security stack",
+    ],
+  },
+  {
+    solution: "Microsoft Copilot Studio",
+    type: "Builder platform (low-code agents)",
+    keyFeatures: [
+      "Build role/LOB agents, plugins & connectors",
+      "Governance & data grounding",
+    ],
+  },
+  {
+    solution: "Copilot in Azure",
+    type: "Cloud ops assistant",
+    keyFeatures: [
+      "Understand resources, get recommendations & queries",
+      "Manage Azure at scale with natural language",
+    ],
+  },
+  {
+    solution: "Copilot for Finance (Finance agents)",
+    type: "Role-based (Finance)",
+    keyFeatures: [
+      "Excel reconciliations & variance checks",
+      "Outlook AR workflows; ERP connections",
+    ],
+    notes: "Rolling out under “Finance agents” branding.",
+  },
+  {
+    solution: "Google Workspace with Gemini",
+    type: "Productivity AI (Workspace)",
+    keyFeatures: [
+      "AI in Docs, Sheets, and Gmail side-panel",
+      "Custom “Gems” assistants",
+    ],
+  },
+  {
+    solution: "SentinelOne Purple AI",
+    type: "Security AI",
+    keyFeatures: [
+      "Generative-AI security analyst",
+      "Natural-language threat hunting & investigation",
+    ],
+  },
+  {
+    solution: "IRONSCALES Email Security",
+    type: "AI email security",
+    keyFeatures: [
+      "AI phishing detection and automated response",
+      "Multi-tenant management for MSPs",
+    ],
+  },
+];
+
 const HomePage: React.FC = () => {
   return (
     <>
@@ -22,12 +114,84 @@ const HomePage: React.FC = () => {
       {/* Process (linked from the hero CTA) */}
       <Process />
 
-      {/* Pricing + Testimonials (kept inside Container/Section) */}
+      {/* AI summary (anchor target for #ai-summary) */}
+      <Container>
+        <Section
+          id="ai-summary"
+          className="relative isolate rounded-[2rem] bg-gradient-to-b from-[#0107750D] via-white to-[#DD00000D]"
+          title={
+            <span className="bg-gradient-to-r from-[#010775] via-[#2A3BCF] to-[#DD0000] bg-clip-text text-transparent">
+              AI solutions we implement
+            </span>
+          }
+          titleClassName="text-4xl md:text-5xl font-extrabold tracking-tight"
+          description="Temrink provides licensing, implementation, and training for the AI products below. Use this quick comparison to see what’s possible for your team."
+        >
+          <div className="overflow-x-auto rounded-2xl border bg-background">
+            <table className="min-w-[780px] w-full text-left text-[15px] md:text-base leading-relaxed">
+              <thead className="border-b bg-white/60 text-sm uppercase tracking-wide">
+                <tr>
+                  <th className="p-5">Solution</th>
+                  <th className="p-5">Type</th>
+                  <th className="p-5">Key features</th>
+                </tr>
+              </thead>
+              <tbody>
+                {aiRows.map((r) => (
+                  <tr key={r.solution} className="border-b last:border-0 align-top">
+                    <td className="p-5 font-medium">
+                      {r.solution}
+                      {r.notes ? (
+                        <span className="block text-xs text-muted-foreground mt-1">
+                          {r.notes}
+                        </span>
+                      ) : null}
+                    </td>
+                    <td className="p-5">{r.type}</td>
+                    <td className="p-5">
+                      <ul className="space-y-1">
+                        {r.keyFeatures.map((k) => (
+                          <li key={k} className="flex items-start gap-3">
+                            {/* Fixed-size brand check badge */}
+                            <span className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#010775] text-white">
+                              <svg
+                                viewBox="0 0 20 20"
+                                className="h-3.5 w-3.5"
+                                fill="currentColor"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0l-3.5-3.5a1 1 0 111.4-1.4l2.8 2.8 6.8-6.8a1 1 0 011.4 0z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                            </span>
+                            <span>{k}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Section>
+      </Container>
+
+      {/* Pricing + Testimonials */}
       <Container>
         <Section
           id="pricing"
-          title="Pricing"
-          description="Simple, transparent pricing. No surprises."
+          className="relative isolate rounded-[2rem] bg-gradient-to-b from-[#0107750D] via-white to-[#DD00000D]"
+          title={
+            <span className="bg-gradient-to-r from-[#010775] via-[#2A3BCF] to-[#DD0000] bg-clip-text text-transparent">
+              Microsoft 365 Business Licenses — Pricing
+            </span>
+          }
+          titleClassName="text-4xl md:text-5xl font-extrabold tracking-tight"
+          description="Current Microsoft 365 Business SKUs and pricing available through Temrink."
         >
           <Pricing />
         </Section>

@@ -11,16 +11,20 @@ import "./globals.css";
 const manrope = Manrope({ subsets: ["latin"], display: "swap" });
 const sourceSans = Source_Sans_3({ subsets: ["latin"], display: "swap" });
 
-// Absolute base URL for OG/Twitter images & canonicals
+// Absolute base URL for OG/Twitter images
 const baseUrl =
   siteDetails.siteUrl?.startsWith("http")
     ? siteDetails.siteUrl
     : "https://temrink.com";
 
+const absolute = (p: string) => (p?.startsWith("http") ? p : `${baseUrl}${p}`);
+const logoUrl = siteDetails.siteLogo ? absolute(siteDetails.siteLogo) : absolute("/images/og-image.jpg");
+
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: siteDetails.metadata.title,
   description: siteDetails.metadata.description,
+  robots: { index: true, follow: true },
   openGraph: {
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
@@ -41,19 +45,25 @@ export const metadata: Metadata = {
     description: siteDetails.metadata.description,
     images: ["/images/twitter-image.jpg"],
   },
-  alternates: { canonical: baseUrl },
+  // NOTE: don't set a global canonical here; set on each page to avoid subpages
+  // inheriting "/" as canonical.
   icons: { icon: "/favicon.ico" },
 };
 
 export const viewport: Viewport = {
   themeColor: "#ffffff",
+  colorScheme: "light",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: siteDetails.siteName || "Temrink",
+    url: baseUrl,
+    logo: logoUrl,
+  };
+
   return (
     // smooth anchor scrolling for links like #process
     <html lang="en" className="scroll-smooth">
@@ -61,6 +71,13 @@ export default function RootLayout({
         {siteDetails.googleAnalyticsId ? (
           <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />
         ) : null}
+
+        {/* Organization structured data for rich results */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
+
         <Header />
         <main>{children}</main>
         <Footer />
