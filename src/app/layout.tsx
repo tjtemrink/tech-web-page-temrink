@@ -27,6 +27,7 @@ export const metadata: Metadata = {
   title: siteDetails.metadata.title,
   description: siteDetails.metadata.description,
   robots: { index: true, follow: true },
+
   openGraph: {
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
@@ -41,16 +42,25 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
     images: ["/images/twitter-image.jpg"],
   },
-  // The icon shown in the browser tab
+
+  // Browser tab / homescreen icons
   icons: {
-    // Primary icon (you placed this at src/app/icon.png)
-    icon: [{ url: "/icon.png" }, { url: "/favicon.ico", sizes: "any" }], // fallback
+    // Primary (Next.js will serve src/app/icon.png at /icon.png)
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      // Keep a generic .ico fallback for older/strict user agents
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    // Nice to have: also provide these so iOS/shortcuts pick it up
+    shortcut: ["/icon.png"],
+    apple: [{ url: "/icon.png" }],
   },
 };
 
@@ -88,4 +98,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-
