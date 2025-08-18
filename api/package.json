@@ -1,0 +1,11 @@
+{
+  "name": "temrink-functions",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Azure Functions for Temrink site (contact email via Resend)",
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "resend": "^3.4.0"
+  }
+}
