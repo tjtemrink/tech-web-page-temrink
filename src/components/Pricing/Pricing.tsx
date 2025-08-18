@@ -1,6 +1,8 @@
 import React from "react";
+import Link from "next/link";                       // ⬅ add
 import PricingColumn from "./PricingColumn";
 import { tiers } from "@/data/pricing";
+import { siteDetails } from "@/data/siteDetails";   // ⬅ add
 
 // tiny check icon for the add-on list
 const Check = (props: React.SVGProps<SVGSVGElement>) => (
@@ -15,6 +17,9 @@ const Pricing: React.FC = () => {
     (t) => typeof t.badge === "string" && t.badge.toLowerCase().includes("popular")
   );
   const highlightIndex = popularIdx >= 0 ? popularIdx : 1;
+
+  // Single source of truth for contact URL
+  const contactHref = siteDetails.contactPath || "/contact";
 
   return (
     <div className="mx-auto max-w-7xl w-full">
@@ -45,12 +50,13 @@ const Pricing: React.FC = () => {
             </p>
           </div>
 
-          <a
-            href="#contact"
+          {/* CTA -> Contact page */}
+          <Link
+            href={contactHref}
             className="inline-flex items-center justify-center rounded-2xl bg-[#010775] px-5 py-3 text-white font-semibold shadow-lg hover:opacity-95"
           >
             Add Copilot
-          </a>
+          </Link>
         </div>
 
         <ul className="mt-5 grid gap-3 md:grid-cols-2 text-sm">
