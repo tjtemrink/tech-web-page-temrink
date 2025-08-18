@@ -40,3 +40,9 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+
+# ── Azure Functions / SWA (local-only artifacts)
+api/local.settings.json
+api/bin/
+api/obj/
+.swa/
