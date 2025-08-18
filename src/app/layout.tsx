@@ -18,7 +18,9 @@ const baseUrl =
     : "https://temrink.com";
 
 const absolute = (p: string) => (p?.startsWith("http") ? p : `${baseUrl}${p}`);
-const logoUrl = siteDetails.siteLogo ? absolute(siteDetails.siteLogo) : absolute("/images/og-image.jpg");
+const logoUrl = siteDetails.siteLogo
+  ? absolute(siteDetails.siteLogo)
+  : absolute("/images/og-image.jpg");
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -45,9 +47,11 @@ export const metadata: Metadata = {
     description: siteDetails.metadata.description,
     images: ["/images/twitter-image.jpg"],
   },
-  // NOTE: don't set a global canonical here; set on each page to avoid subpages
-  // inheriting "/" as canonical.
-  icons: { icon: "/favicon.ico" },
+  // The icon shown in the browser tab
+  icons: {
+    // Primary icon (you placed this at src/app/icon.png)
+    icon: [{ url: "/icon.png" }, { url: "/favicon.ico", sizes: "any" }], // fallback
+  },
 };
 
 export const viewport: Viewport = {
@@ -65,7 +69,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    // smooth anchor scrolling for links like #process
     <html lang="en" className="scroll-smooth">
       <body className={`${manrope.className} ${sourceSans.className} antialiased`}>
         {siteDetails.googleAnalyticsId ? (
@@ -85,3 +88,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
