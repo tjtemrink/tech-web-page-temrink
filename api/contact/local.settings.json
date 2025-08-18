@@ -1,0 +1,11 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "RESEND_API_KEY": "YOUR_TEST_KEY",
+    "CONTACT_TO": "consulting@temrink.com",
+    "CONTACT_FROM": "Temrink <noreply@temrink.com>"
+  },
+  "Host": { "CORS": "*" }
+}
