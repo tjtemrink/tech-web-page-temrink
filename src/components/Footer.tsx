@@ -10,6 +10,18 @@ const BRAND_BLUE = "#010775";
 const BRAND_RED = "#DD0000";
 const DEFAULT_EMAIL = "consulting@temrink.com";
 
+// Official profiles (we enforce X/Twitter to avoid duplicates)
+const OFFICIAL = {
+  x: "https://x.com/Temrinkinc",
+};
+
+const SOCIAL_DEFAULTS: Record<string, string> = {
+  x: OFFICIAL.x,
+  instagram:
+    "https://www.instagram.com/temrink.inc?utm_source=ig_web_button_share_sheet&igsh=dWJ3cXN3aDlxc2Jo",
+  linkedin: "https://www.linkedin.com/company/temrinkinc/",
+};
+
 // Guard against placeholder emails from seed data
 function resolveEmail(e?: string) {
   if (!e) return DEFAULT_EMAIL;
@@ -24,11 +36,38 @@ function telHref(raw?: string) {
   return `tel:${cleaned}`;
 }
 
+// Normalize platform keys to what getPlatformIconByName expects
+function normalizePlatformKey(k: string): string {
+  const low = k.toLowerCase();
+  if (["twitter", "x", "xtwitter"].includes(low)) return "x";
+  if (["linkedin", "linkedIn", "li"].includes(low)) return "linkedin";
+  if (["instagram", "ig"].includes(low)) return "instagram";
+  return low;
+}
+
 const EMAIL = resolveEmail(footerDetails.email);
-const PHONE = footerDetails.telephone || process.env.NEXT_PUBLIC_TEMRINK_PHONE || "";
+const PHONE =
+  footerDetails.telephone || process.env.NEXT_PUBLIC_TEMRINK_PHONE || "";
 
 const Footer: React.FC = () => {
-  // Strongly typed CSS variables (no `any`)
+  // Merge defaults + site data, then de-duplicate by normalized key
+  const merged = { ...SOCIAL_DEFAULTS, ...(footerDetails.socials || {}) };
+
+  const finalSocials: Record<string, string> = {};
+  for (const [rawKey, urlRaw] of Object.entries(merged)) {
+    const key = normalizePlatformKey(rawKey);
+    let url = urlRaw || "";
+
+    // Always enforce the official X/Twitter link; skip any other/empty one
+    if (key === "x") {
+      finalSocials.x = OFFICIAL.x;
+      continue;
+    }
+
+    if (!url) continue;
+    if (!finalSocials[key]) finalSocials[key] = url;
+  }
+
   const brandVars =
     {
       "--brand-blue": BRAND_BLUE,
@@ -42,18 +81,21 @@ const Footer: React.FC = () => {
         <div>
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/images/temrink-logo.png" // ensure this exists (SVG preferred)
+              src="/images/temrink-logo.png"
               alt="Temrink"
               width={160}
               height={40}
               className="h-8 w-auto object-contain"
-              priority={false}
             />
-            <span className="manrope text-xl font-semibold">{siteDetails.siteName}</span>
+            <span className="manrope text-xl font-semibold">
+              {siteDetails.siteName}
+            </span>
           </Link>
 
           {footerDetails.subheading && (
-            <p className="mt-3.5 text-foreground-accent">{footerDetails.subheading}</p>
+            <p className="mt-3.5 text-foreground-accent">
+              {footerDetails.subheading}
+            </p>
           )}
         </div>
 
@@ -61,15 +103,13 @@ const Footer: React.FC = () => {
         <nav aria-label="Footer">
           <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
           <ul className="text-foreground-accent">
-            {footerDetails.quickLinks.map(
-              (link: { text: string; url: string }) => (
-                <li key={link.text} className="mb-2">
-                  <Link href={link.url} className="hover:text-foreground">
-                    {link.text}
-                  </Link>
-                </li>
-              )
-            )}
+            {footerDetails.quickLinks.map((link: { text: string; url: string }) => (
+              <li key={link.text} className="mb-2">
+                <Link href={link.url} className="hover:text-foreground">
+                  {link.text}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
 
@@ -100,33 +140,29 @@ const Footer: React.FC = () => {
             </span>
           )}
 
-          {footerDetails.socials && (
-            <div className="mt-5 flex items-center gap-5 md:justify-end flex-wrap">
-              {Object.entries(footerDetails.socials).map(
-                ([platformName, url]: [string, string | undefined]) =>
-                  url ? (
-                    <Link
-                      href={url}
-                      key={platformName}
-                      aria-label={platformName}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:opacity-80"
-                    >
-                      {getPlatformIconByName(platformName)}
-                    </Link>
-                  ) : null
-              )}
-            </div>
-          )}
+          {/* Social icons (deduped; X always official) */}
+          <div className="mt-5 flex items-center gap-3 md:justify-end flex-wrap">
+            {Object.entries(finalSocials).map(([key, url]) => (
+              <a
+                key={key}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Temrink on ${key}`}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border hover:bg-muted transition"
+              >
+                {getPlatformIconByName(key)}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Bottom bar – credits removed */}
+      {/* Bottom bar */}
       <div className="mt-8 md:text-center text-foreground-accent px-6">
         <p>
-          Copyright &copy; {new Date().getFullYear()} {siteDetails.siteName}. All
-          rights reserved.
+          Copyright &copy; {new Date().getFullYear()} {siteDetails.siteName}.
+          All rights reserved.
         </p>
       </div>
     </footer>

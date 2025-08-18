@@ -18,32 +18,33 @@ function normalizeUrl(url: string): string {
   if (!url) return '/';
   const u = url.trim();
 
-  // Explicitly allow the Contact PAGE
+  // Contact page stays a route
   if (u === '/contact' || u === 'contact') return '/contact';
 
   // Keep anchors as '/#section'
   if (u.startsWith('/#')) return u;
   if (u.startsWith('#')) return `/${u}`;
 
+  // External or other routes pass through
   return u;
 }
+
+// External link detector
+const isExternal = (href: string) => /^https?:\/\//i.test(href) || href.startsWith('//');
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  // Inject "Home" and map Contact to /contact; others normalized
+  // Inject "Home" and normalize
   const navItems: NavItem[] = useMemo(() => {
     const items = baseMenuItems.map<NavItem>((i: any) => {
       const text = String(i.text ?? '');
       let url = String(i.url ?? '');
 
-      // Force Contact (by label) to be a page route
-      if (text.toLowerCase() === 'contact') {
-        url = '/contact';
-      } else {
-        url = normalizeUrl(url);
-      }
+      if (text.toLowerCase() === 'contact') url = '/contact';
+      else url = normalizeUrl(url);
+
       return { text, url };
     });
 
@@ -72,7 +73,7 @@ const Header: React.FC = () => {
         }
       }
 
-      // For normal routes (e.g., /contact) just close and let Link navigate
+      // For normal routes (e.g., /contact), just close and let Link navigate
       closeMenu();
     },
     [pathname]
@@ -105,23 +106,34 @@ const Header: React.FC = () => {
           <ul className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <li key={item.text}>
-                <Link
-                  href={item.url}
-                  className="text-foreground hover:text-foreground-accent transition-colors"
-                  prefetch={false}
-                  // Only pass the smooth-scroll handler for anchors
-                  onClick={
-                    item.url.startsWith('/#')
-                      ? (e) => handleAnchorClick(e, item.url)
-                      : () => closeMenu()
-                  }
-                >
-                  {item.text}
-                </Link>
+                {isExternal(item.url) ? (
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground hover:text-foreground-accent transition-colors"
+                    onClick={closeMenu}
+                  >
+                    {item.text}
+                  </a>
+                ) : (
+                  <Link
+                    href={item.url}
+                    className="text-foreground hover:text-foreground-accent transition-colors"
+                    prefetch={false}
+                    onClick={
+                      item.url.startsWith('/#')
+                        ? (e) => handleAnchorClick(e, item.url)
+                        : () => closeMenu()
+                    }
+                  >
+                    {item.text}
+                  </Link>
+                )}
               </li>
             ))}
             <li>
-              {/* CTA should go to the Contact PAGE */}
+              {/* CTA -> Contact PAGE */}
               <Link
                 href="/contact"
                 className="text-black bg-primary hover:bg-primary-accent px-8 py-3 rounded-full transition-colors"
@@ -167,18 +179,30 @@ const Header: React.FC = () => {
           <ul className="flex flex-col space-y-4 pt-1 pb-6 px-6">
             {navItems.map((item) => (
               <li key={item.text}>
-                <Link
-                  href={item.url}
-                  className="text-foreground hover:text-primary block"
-                  prefetch={false}
-                  onClick={
-                    item.url.startsWith('/#')
-                      ? (e) => handleAnchorClick(e, item.url)
-                      : () => closeMenu()
-                  }
-                >
-                  {item.text}
-                </Link>
+                {isExternal(item.url) ? (
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground hover:text-primary block"
+                    onClick={closeMenu}
+                  >
+                    {item.text}
+                  </a>
+                ) : (
+                  <Link
+                    href={item.url}
+                    className="text-foreground hover:text-primary block"
+                    prefetch={false}
+                    onClick={
+                      item.url.startsWith('/#')
+                        ? (e) => handleAnchorClick(e, item.url)
+                        : () => closeMenu()
+                    }
+                  >
+                    {item.text}
+                  </Link>
+                )}
               </li>
             ))}
             <li>
