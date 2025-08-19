@@ -1,6 +1,7 @@
 // src/components/Process.tsx
 import Image from "next/image";
 import Container from "./Container";
+import { siteDetails } from "@/data/siteDetails";
 
 const steps = [
   { title: "Discovery call", desc: "Understand your stack, pain points, security posture, and goals." },
@@ -13,8 +14,10 @@ const steps = [
 
 function ArrowBadge() {
   return (
-    <span className="absolute -left-2 -top-3 flex h-8 w-8 items-center justify-center rounded-full
-                      bg-[#010775] text-white shadow ring-2 ring-background">
+    <span
+      className="absolute -left-2 -top-3 flex h-8 w-8 items-center justify-center rounded-full
+                 bg-[#010775] text-white shadow ring-2 ring-background"
+    >
       <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2"
            strokeLinecap="round" strokeLinejoin="round">
         <path d="M6 9l6 6 6-6" />
@@ -24,6 +27,9 @@ function ArrowBadge() {
 }
 
 export default function Process() {
+  // Always route CTAs to the contact page
+  const contactHref = siteDetails.contactPath || "/contact";
+
   return (
     <section id="process" className="relative scroll-mt-28 md:scroll-mt-40 bg-muted/30">
       <Container>
@@ -55,13 +61,15 @@ export default function Process() {
               {/* CTAs */}
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
-                  href="#contact"
+                  href={contactHref}
                   className="inline-flex items-center justify-center rounded-2xl bg-[#010775] px-5 py-2.5 text-white font-semibold shadow-lg hover:opacity-95"
+                  aria-label="Book a meeting"
+                  title="Book a meeting"
                 >
                   Book a meeting
                 </a>
                 <a
-                  href="#contact"
+                  href={contactHref}
                   className="inline-flex items-center justify-center rounded-2xl border border-border px-5 py-2.5 text-foreground font-semibold hover:bg-muted"
                 >
                   Talk to an expert
