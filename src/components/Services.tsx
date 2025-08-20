@@ -1,7 +1,8 @@
 // src/components/Services.tsx
-import Link from "next/link";
 import Image from "next/image";
 import Container from "./Container";
+
+const BRAND_BLUE = "#010775";
 
 const services = [
   {
@@ -9,9 +10,10 @@ const services = [
     title: "Licensing (M365 & Google)",
     img: "/images/licensing.webp",
     points: [
-      "Consolidated billing and cost reporting",
+      "Consolidated billing & cost reporting",
       "Right-size seats to cut waste",
-      "Governance guidance and security baseline",
+      "Security baseline & governance",
+      "Monthly usage & savings report",
     ],
   },
   {
@@ -19,9 +21,10 @@ const services = [
     title: "Device as a Service",
     img: "/images/daas.webp",
     points: [
-      "Standardized Windows/Mac builds & zero-touch setup",
-      "Bitdefender protection, patching & updates",
-      "Lifecycle: procurement, warranty, refresh",
+      "Std. Windows/Mac builds & zero-touch",
+      "Bitdefender protection & patching",
+      "Lifecycle: procurement→refresh",
+      "Inventory & asset tracking",
     ],
   },
   {
@@ -30,8 +33,9 @@ const services = [
     img: "/images/ai.webp",
     points: [
       "Copilot readiness, rollout & training",
-      "Automate 2–3 high-leverage workflows first",
-      "Integrations with Power Automate / Logic Apps",
+      "Automate 2–3 high-leverage workflows",
+      "Power Automate / Logic Apps",
+      "Guardrails, governance & controls",
     ],
   },
   {
@@ -41,71 +45,61 @@ const services = [
     points: [
       "Responsive support with clear SLAs",
       "On/Off-boarding & access requests",
-      "Monitoring and monthly optimization",
+      "Monitoring & monthly optimization",
+      "Priority incident handling",
     ],
   },
 ];
 
 export default function Services() {
   return (
-    <section id="features" className="relative py-20 md:py-28">
-      {/* gives the section its own “band” feel */}
-      <div className="absolute inset-x-0 top-0 -z-10 h-40 bg-gradient-to-b from-slate-50/90 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-slate-50/70 to-transparent" />
-
+    <section id="features" className="py-16 md:py-24 bg-muted/30">
       <Container>
-        <header className="text-center">
-          <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-slate-500">
-            Services
-          </p>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold text-slate-900">
-            What we provide
-          </h2>
-          <p className="mt-3 text-slate-600 max-w-2xl mx-auto">
+        <div className="text-center">
+          <h2 className="text-3xl md:text-4xl font-bold">What we provide</h2>
+          <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
             Four core services to stabilize your IT and unlock AI-powered productivity.
           </p>
-        </header>
+        </div>
 
-        {/* vertical stack; each card is its own panel */}
-        <div className="mt-12 space-y-10 md:space-y-14">
+        <div className="mt-10 grid gap-8 md:grid-cols-2">
           {services.map((s) => (
             <article
               key={s.key}
-              className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
+              className="rounded-2xl border bg-background shadow-sm ring-1 ring-slate-200"
             >
-              {/* FULL image visible (object-contain) */}
-              <div className="w-full bg-slate-50 flex items-center justify-center">
+              {/* Edge-to-edge image with rounded top corners (no white space) */}
+              <div className="overflow-hidden rounded-t-2xl">
                 <Image
                   src={s.img}
-                  alt={s.title}
-                  width={1600}
-                  height={900}
+                  alt={`${s.title} illustration`}
+                  width={1280}
+                  height={720}
+                  className="h-56 w-full object-cover md:h-64"
                   priority={s.key === "licensing"}
-                  className="h-56 md:h-80 w-auto object-contain"
                 />
               </div>
 
-              <div className="p-6 md:p-8">
-                <h3 className="text-2xl font-semibold text-slate-900">{s.title}</h3>
+              <div className="p-6 md:p-7">
+                <h3
+                  className="text-lg md:text-xl font-semibold"
+                  style={{ color: BRAND_BLUE }}
+                >
+                  {s.title}
+                </h3>
 
-                {/* clear, airy bullets; wrap to 1–3 columns on larger screens */}
-                <ul className="mt-4 grid gap-2 text-slate-700 sm:grid-cols-2 lg:grid-cols-3">
+                {/* 4 crisp bullets — easy to scan */}
+                <ul className="mt-4 space-y-2.5 text-[15px] leading-relaxed">
                   {s.points.map((p, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#010775]" />
+                    <li key={i} className="flex items-start gap-2.5">
+                      <span
+                        className="mt-2 h-2.5 w-2.5 rounded-full shrink-0"
+                        style={{ backgroundColor: BRAND_BLUE }}
+                      />
                       <span>{p}</span>
                     </li>
                   ))}
                 </ul>
-
-                <div className="mt-6">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center rounded-2xl bg-[#010775] px-5 py-2.5 text-white font-semibold shadow-md hover:opacity-95"
-                  >
-                    Get started
-                  </Link>
-                </div>
               </div>
             </article>
           ))}
