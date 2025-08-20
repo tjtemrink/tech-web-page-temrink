@@ -1,5 +1,9 @@
+// src/components/Services.tsx
 import Image from "next/image";
 import Container from "./Container";
+import { HiCheckCircle } from "react-icons/hi2";
+
+const BRAND_BLUE = "#010775";
 
 const services = [
   {
@@ -55,30 +59,52 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <div className="mt-10 grid gap-6">
           {services.map((s) => (
-            <div key={s.key} className="rounded-2xl border bg-background p-6 md:p-8">
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-muted">
+            <article
+              key={s.key}
+              className="grid overflow-hidden rounded-3xl bg-background ring-1 ring-slate-200 shadow-sm md:grid-cols-[1fr,1.25fr]"
+            >
+              {/* Image */}
+              <div className="relative min-h-56 md:min-h-[240px]">
                 <Image
                   src={s.img}
                   alt={`${s.title} illustration`}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority={s.key === "licensing"} // eager-load first card to reduce LCP
+                  priority={s.key === "licensing"}
                 />
               </div>
 
-              <h3 className="mt-6 text-xl font-semibold">{s.title}</h3>
-              <ul className="mt-4 space-y-2 text-sm">
-                {s.points.map((p, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
-                    <span>{p}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              {/* Content */}
+              <div className="p-6 md:p-7">
+                <h3 className="text-lg md:text-xl font-semibold text-slate-900">
+                  {s.title}
+                </h3>
+
+                {/* Two-column bullets on sm+ to cut vertical scrolling */}
+                <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+                  {s.points.map((p, i) => (
+                    <li key={i} className="flex items-start gap-2 text-[15px] leading-6 text-slate-700">
+                      <HiCheckCircle
+                        className="mt-0.5 h-5 w-5"
+                        style={{ color: BRAND_BLUE }}
+                        aria-hidden="true"
+                      />
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href="/contact"
+                  className="mt-4 inline-flex items-center justify-center rounded-2xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-100"
+                >
+                  Get started
+                </a>
+              </div>
+            </article>
           ))}
         </div>
       </Container>
