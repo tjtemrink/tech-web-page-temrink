@@ -241,9 +241,12 @@ const ComprehensivePricing: React.FC = () => {
                 </div>
               )}
               
-              <button className="w-full bg-[#010775] text-white py-3 px-4 rounded-xl font-semibold hover:bg-[#2A3BCF] transition-colors">
-                Get Started
-              </button>
+              <a
+                href="/contact"
+                className="w-full bg-[#010775] text-white py-3 px-4 rounded-xl font-semibold hover:bg-[#2A3BCF] transition-colors inline-block text-center"
+              >
+                Learn More
+              </a>
             </div>
           ))}
         </div>
@@ -282,9 +285,12 @@ const ComprehensivePricing: React.FC = () => {
                 ))}
               </ul>
               
-              <button className="w-full bg-[#010775] text-white py-3 px-4 rounded-xl font-semibold hover:bg-[#2A3BCF] transition-colors">
-                Get Started
-              </button>
+              <a
+                href="/contact"
+                className="w-full bg-[#010775] text-white py-3 px-4 rounded-xl font-semibold hover:bg-[#2A3BCF] transition-colors inline-block text-center"
+              >
+                Learn More
+              </a>
             </div>
           ))}
         </div>
@@ -336,9 +342,12 @@ const ComprehensivePricing: React.FC = () => {
             >
               <h4 className="font-semibold text-slate-900 mb-2">{addon.service}</h4>
               <div className="text-2xl font-bold text-[#010775] mb-4">{addon.price}</div>
-              <button className="w-full bg-slate-100 text-slate-700 py-2 px-4 rounded-lg font-medium hover:bg-slate-200 transition-colors">
+              <a
+                href="/contact"
+                className="w-full bg-slate-100 text-slate-700 py-2 px-4 rounded-lg font-medium hover:bg-slate-200 transition-colors inline-block text-center"
+              >
                 Learn More
-              </button>
+              </a>
             </div>
           ))}
         </div>
