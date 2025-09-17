@@ -8,6 +8,7 @@ import ComprehensivePricing from "@/components/ComprehensivePricing";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Stats from "@/components/Stats";
+import DecisionMatrix from "@/components/DecisionMatrix";
 // REMOVE: import CTA from "@/components/CTA";
 // Removed MicrosoftBanner per request
 
@@ -216,6 +217,35 @@ const HomePage: React.FC = () => {
               </tbody>
             </table>
           </div>
+        </Section>
+      </Container>
+
+      {/* Section divider */}
+      <div className="py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+        </div>
+      </div>
+
+      {/* Decision Matrix */}
+      <Container>
+        <Section
+          id="decision-matrix"
+          className="relative isolate rounded-[2rem] bg-gradient-to-b from-[#F1F5FF] via-white to-[#F8FAFF] ring-1 ring-border shadow-lg"
+          title={
+            <div className="text-center">
+              <span className="inline-flex items-center rounded-full px-3.5 py-1.5 text-sm font-semibold tracking-wide bg-[#010775]/10 text-[#010775] mb-4">
+                PACKAGE RECOMMENDATIONS
+              </span>
+              <span className="bg-gradient-to-r from-[#010775] via-[#2A3BCF] to-[#DD0000] bg-clip-text text-transparent">
+                Decision Matrix
+              </span>
+            </div>
+          }
+          titleClassName="text-4xl md:text-5xl font-extrabold tracking-tight"
+          description="Find the right IT support package based on your team size, current licenses, security needs, and device requirements."
+        >
+          <DecisionMatrix />
         </Section>
       </Container>
 
