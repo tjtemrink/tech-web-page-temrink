@@ -10,7 +10,7 @@ import { siteDetails } from "@/data/siteDetails";
 const Hero: React.FC = () => {
   // Always route “Book a meeting” to the contact page
   const contactHref = siteDetails.contactPath || "/contact";
-  const secondaryHref = heroDetails.ctaSecondary?.href ?? "#process";
+  const secondaryHref = heroDetails.ctaSecondary?.href ?? "/process";
 
   return (
     <section id="hero" className="relative overflow-hidden">

@@ -15,11 +15,19 @@ export const footerDetails: {
         },
         {
             text: "Pricing",
-            url: "#pricing"
+            url: "/pricing"
         },
         {
-            text: "Testimonials",
-            url: "#testimonials"
+            text: "AI Solutions",
+            url: "/ai-solutions"
+        },
+        {
+            text: "Process",
+            url: "/process"
+        },
+        {
+            text: "Contact",
+            url: "/contact"
         }
     ],
     email: 'address@yoursite.com',
