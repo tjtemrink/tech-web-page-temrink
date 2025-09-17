@@ -371,3 +371,6 @@ notes_for_cursor_integration: >
   The chatbot should: (1) ask qualification questions, (2) map answers to recommendation_logic.rules,
   (3) present 1–2 best-fit packages with price hints and relevant add-ons, and (4) offer a discovery call or audit.
   When quoting specific numbers, keep the inline citations attached so you (or an admin chat) can trace back to the source doc instantly.
+
+
+

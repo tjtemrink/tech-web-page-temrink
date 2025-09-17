@@ -26,3 +26,6 @@ Guidelines:
 - Include “last updated” at the top
 
 Once files are added, update `manifest.json` to list them so the chatbot can index and surface the right snippets.
+
+
+
