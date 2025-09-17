@@ -1,4 +1,5 @@
 import Container from "@/components/Container";
+import Header from "@/components/Header";
 
 const faqs = [
   {
@@ -30,7 +31,9 @@ export const metadata = {
 
 export default function FAQsPage() {
   return (
-    <section className="pt-28 md:pt-40 pb-16">
+    <>
+      <Header />
+      <section className="pt-28 md:pt-40 pb-16">
       <Container>
         <h1 className="text-3xl md:text-4xl font-bold">FAQs</h1>
         <div className="mt-8 divide-y">
@@ -43,5 +46,6 @@ export default function FAQsPage() {
         </div>
       </Container>
     </section>
+    </>
   );
 }

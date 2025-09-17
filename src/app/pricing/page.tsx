@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import Pricing from "@/components/Pricing/Pricing";
+import Header from "@/components/Header";
 
 export const metadata = {
   title: "Pricing — Temrink",
@@ -9,7 +10,9 @@ export const metadata = {
 
 export default function PricingPage() {
   return (
-    <section className="pt-28 md:pt-40 pb-16">
+    <>
+      <Header />
+      <section className="pt-28 md:pt-40 pb-16">
       <Container>
         <header>
           <h1 className="text-3xl md:text-4xl font-bold">Pricing</h1>
@@ -60,5 +63,6 @@ export default function PricingPage() {
         </p>
       </Container>
     </section>
+    </>
   );
 }

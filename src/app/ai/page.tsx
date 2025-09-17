@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Container from "@/components/Container";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "AI at a Glance — Copilot, Gemini & More",
@@ -110,7 +111,9 @@ const rows: Row[] = [
 
 export default function AIPage() {
   return (
-    <section className="pt-28 md:pt-40 pb-20">
+    <>
+      <Header />
+      <section className="pt-28 md:pt-40 pb-20">
       <Container>
         <h1 className="text-3xl md:text-4xl font-bold">AI at a glance</h1>
         <p className="mt-3 text-muted-foreground max-w-3xl">
@@ -153,5 +156,6 @@ export default function AIPage() {
         </p>
       </Container>
     </section>
+    </>
   );
 }
