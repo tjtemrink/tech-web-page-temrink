@@ -17,6 +17,13 @@ const config: Config = {
         "primary-accent": "var(--primary-accent)",
         "foreground-accent": "var(--foreground-accent)",
         "hero-background": "var(--hero-background)",
+
+        // Common UI tokens used across components
+        muted: "var(--muted)",
+        "muted-foreground": "var(--muted-foreground)",
+        border: "var(--border)",
+        ring: "var(--ring)",
+        "ring-border": "var(--ring-border)",
       },
     },
   },

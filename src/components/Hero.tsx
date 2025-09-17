@@ -4,49 +4,57 @@ import React from "react";
 import Image from "next/image";
 import Container from "@/components/Container";
 import { heroDetails } from "@/data/hero";
+import { siteDetails } from "@/data/siteDetails";
 
 const BRAND_BLUE = "#010775";
 
 const Hero: React.FC = () => {
+  // Always route “Book a meeting” to the contact page
+  const contactHref = siteDetails.contactPath || "/contact";
+  const secondaryHref = heroDetails.ctaSecondary?.href ?? "#process";
+
   return (
     <section id="hero" className="relative overflow-hidden">
-      {/* Full-bleed soft background */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white to-slate-50" />
+      {/* Full-bleed tech gradient background */}
+      <div className="absolute inset-0 -z-10" aria-hidden>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1026] via-[#0E1530] to-[#0B1026]" />
+        <div className="pointer-events-none absolute -top-40 -right-20 h-96 w-96 rounded-full bg-[#2A3BCF]/20 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-52 -left-28 h-[28rem] w-[28rem] rounded-full bg-[#DD0000]/10 blur-3xl" />
+      </div>
 
       {/* Constrained content */}
       <Container className="pt-20 md:pt-24 pb-10">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           {/* LEFT */}
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-left text-white">
             {/* Kicker */}
             <span
-              className="inline-flex items-center rounded-full px-3.5 py-1.5 text-sm font-semibold tracking-wide"
-              style={{
-                backgroundColor: `${BRAND_BLUE}1A`, // ~10% alpha
-                color: BRAND_BLUE,
-              }}
+              className="inline-flex items-center rounded-full px-3.5 py-1.5 text-sm font-semibold tracking-wide bg-white/20 text-white"
             >
               {heroDetails.kicker ?? "TEMRINK FOR SMBS"}
             </span>
 
-            <h1 className="mt-4 text-4xl md:text-5xl font-extrabold text-slate-900 md:leading-tight max-w-2xl mx-auto lg:mx-0">
+            <h1 className="mt-4 text-4xl md:text-5xl font-extrabold md:leading-tight max-w-2xl mx-auto lg:mx-0">
               {heroDetails.heading}
             </h1>
 
-            <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0">
+            <p className="mt-4 text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0">
               {heroDetails.subheading}
             </p>
 
             <div className="mt-7 flex flex-wrap justify-center lg:justify-start gap-4">
               <a
-                href={heroDetails.ctaPrimary?.href ?? "#contact"}
-                className="inline-flex items-center justify-center rounded-2xl bg-[#010775] px-6 py-3 text-white font-semibold shadow-lg shadow-blue-200 hover:opacity-95"
+                href={contactHref}
+                className="inline-flex items-center justify-center rounded-2xl bg-[#2A3BCF] px-6 py-3 text-white font-semibold shadow-lg shadow-blue-900/20 hover:opacity-95"
+                aria-label="Book a meeting"
+                title="Book a meeting"
               >
                 {heroDetails.ctaPrimary?.label ?? "Book a meeting"}
               </a>
+
               <a
-                href={heroDetails.ctaSecondary?.href ?? "#process"}
-                className="inline-flex items-center justify-center rounded-2xl border border-slate-300 px-6 py-3 text-slate-800 font-semibold hover:bg-slate-100"
+                href={secondaryHref}
+                className="inline-flex items-center justify-center rounded-2xl border border-white/20 px-6 py-3 text-white font-semibold hover:bg-white/10"
               >
                 {heroDetails.ctaSecondary?.label ?? "See our process"}
               </a>
@@ -55,7 +63,7 @@ const Hero: React.FC = () => {
 
           {/* RIGHT (nudged down a bit on large screens) */}
           <div className="relative lg:mt-4">
-            <div className="aspect-[4/3] w-full rounded-3xl bg-white/70 p-3 ring-1 ring-slate-200 shadow-xl">
+            <div className="aspect-[4/3] w-full rounded-3xl bg-white/90 p-3 ring-1 ring-white/30 shadow-xl">
               <Image
                 src={heroDetails.centerImageSrc}
                 width={1200}
@@ -73,25 +81,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Partner logos */}
-        <div className="mt-10 border-t border-slate-200 pt-6">
-          <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 text-center lg:text-left">
-            Trusted by partners
-          </p>
-          <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 items-center gap-10">
-            {heroDetails.partners?.map((p) => (
-              <Image
-                key={p.name}
-                src={p.src}
-                alt={p.name}
-                width={p.width ?? 240}
-                height={p.height ?? 72}
-                className="mx-auto h-12 md:h-16 w-auto object-contain"
-                sizes="(max-width: 640px) 40vw, 240px"
-              />
-            ))}
-          </div>
-        </div>
       </Container>
     </section>
   );

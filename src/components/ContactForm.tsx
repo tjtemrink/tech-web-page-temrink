@@ -23,9 +23,10 @@ export default function ContactForm() {
       if (!res.ok) throw new Error(await res.text());
       setStatus('ok');
       form.reset();
-    } catch (err: any) {
+    } catch (err: unknown) {
       setStatus('error');
-      setError(err?.message || 'Failed to send');
+      const message = err instanceof Error ? err.message : 'Failed to send';
+      setError(message);
     }
   }
 

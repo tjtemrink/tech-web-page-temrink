@@ -4,6 +4,7 @@ import { Source_Sans_3, Manrope } from "next/font/google";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Chatbot from "@/components/Chatbot";
 import { siteDetails } from "@/data/siteDetails";
 
 import "./globals.css";
@@ -27,6 +28,7 @@ export const metadata: Metadata = {
   title: siteDetails.metadata.title,
   description: siteDetails.metadata.description,
   robots: { index: true, follow: true },
+  alternates: { canonical: baseUrl },
 
   openGraph: {
     title: siteDetails.metadata.title,
@@ -35,7 +37,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/images/temrink-logo.png",
         width: 1200,
         height: 675,
         alt: siteDetails.siteName,
@@ -47,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
-    images: ["/images/twitter-image.jpg"],
+    images: ["/images/temrink-logo.png"],
   },
 
   // Browser tab / homescreen icons
@@ -80,7 +82,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${manrope.className} ${sourceSans.className} antialiased`}>
+      <body className={`${sourceSans.className} antialiased`}>
+        {/* Performance: preconnect to Google Fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {siteDetails.googleAnalyticsId ? (
           <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />
         ) : null}
@@ -94,6 +99,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main>{children}</main>
         <Footer />
+        <Chatbot />
       </body>
     </html>
   );

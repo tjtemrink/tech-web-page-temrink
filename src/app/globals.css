@@ -11,6 +11,13 @@
   --primary-accent: #e5c230;
   --foreground-accent: #454545;
   --hero-background: #F3F3F5;
+
+  /* UI tokens used via Tailwind custom colors */
+  --muted: #f5f7fb;
+  --muted-foreground: #6b7280; /* slate-500 */
+  --border: #e5e7eb;            /* gray-200 */
+  --ring: #93c5fd;              /* blue-300 */
+  --ring-border: #e5e7eb;       /* gray-200 */
 }
 
 html {
@@ -22,6 +29,7 @@ body {
   
   color: var(--foreground);
   background: var(--background);
+  /* Keep Source Sans 3 as default body font */
   font-family: "Source Sans 3", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;

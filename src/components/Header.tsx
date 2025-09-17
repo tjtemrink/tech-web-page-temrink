@@ -82,7 +82,7 @@ const Header: React.FC = () => {
   return (
     <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-50 mx-auto w-full">
       <Container className="!px-0">
-        <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-10">
+        <nav className="shadow-md md:shadow-none bg-white/95 backdrop-blur-sm md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-10">
           {/* Brand -> Home (hero) */}
           <Link
             href="/#hero"
@@ -111,7 +111,7 @@ const Header: React.FC = () => {
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-foreground hover:text-foreground-accent transition-colors"
+                    className="text-slate-800 md:text-white hover:text-slate-600 md:hover:text-slate-200 transition-colors"
                     onClick={closeMenu}
                   >
                     {item.text}
@@ -119,7 +119,7 @@ const Header: React.FC = () => {
                 ) : (
                   <Link
                     href={item.url}
-                    className="text-foreground hover:text-foreground-accent transition-colors"
+                    className="text-slate-800 md:text-white hover:text-slate-600 md:hover:text-slate-200 transition-colors"
                     prefetch={false}
                     onClick={
                       item.url.startsWith('/#')
@@ -184,7 +184,7 @@ const Header: React.FC = () => {
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-foreground hover:text-primary block"
+                    className="text-slate-800 hover:text-slate-600 block"
                     onClick={closeMenu}
                   >
                     {item.text}
@@ -192,7 +192,7 @@ const Header: React.FC = () => {
                 ) : (
                   <Link
                     href={item.url}
-                    className="text-foreground hover:text-primary block"
+                    className="text-slate-800 hover:text-slate-600 block"
                     prefetch={false}
                     onClick={
                       item.url.startsWith('/#')

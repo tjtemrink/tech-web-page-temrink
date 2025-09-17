@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "updated": "2025-09-17",
+  "sources": [
+    { "id": "services/overview", "path": "/knowledge/services/overview.md", "title": "Services Overview", "tags": ["services"] },
+    { "id": "services/helpdesk", "path": "/knowledge/services/helpdesk.md", "title": "IT Helpdesk", "tags": ["services","support"] },
+    { "id": "services/automation", "path": "/knowledge/services/automation.md", "title": "AI & Automation", "tags": ["ai","automation","copilot"] },
+    { "id": "licensing/microsoft-365", "path": "/knowledge/licensing/microsoft-365.md", "title": "Microsoft 365 Licensing", "tags": ["licensing","m365"] },
+    { "id": "licensing/google-workspace", "path": "/knowledge/licensing/google-workspace.md", "title": "Google Workspace Licensing", "tags": ["licensing","google"] },
+    { "id": "pricing/m365-business", "path": "/knowledge/pricing/microsoft-365-business.md", "title": "M365 Business Pricing (CAD)", "tags": ["pricing","m365","cad"] },
+    { "id": "pricing/copilot", "path": "/knowledge/pricing/copilot.md", "title": "Microsoft 365 Copilot Pricing", "tags": ["pricing","copilot"] }
+  ]
+}

@@ -1,14 +1,15 @@
+import React from "react";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Container from "@/components/Container";
 import Section from "@/components/Section";
-import Pricing from "@/components/Pricing/Pricing";
+import ComprehensivePricing from "@/components/ComprehensivePricing";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Stats from "@/components/Stats";
 // REMOVE: import CTA from "@/components/CTA";
-import MicrosoftBanner from "@/components/MicrosoftBanner";
+// Removed MicrosoftBanner per request
 
 /** AI quick summary rows (clean + simple) */
 type AIRow = {
@@ -104,32 +105,70 @@ const aiRows: AIRow[] = [
 
 const HomePage: React.FC = () => {
   return (
-    <>
+    <div>
       {/* Hero with partner strip */}
       <Hero />
 
       {/* Core services */}
       <Services />
 
-      {/* Process (linked from the hero CTA) */}
-      <Process />
+      {/* Section divider */}
+      <div className="py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+        </div>
+      </div>
+
+      {/* Pricing - High importance, moved up */}
+      <Container>
+        <Section
+          id="pricing"
+          className="relative isolate rounded-[2rem] bg-gradient-to-b from-[#F1F5FF] via-white to-[#F8FAFF] ring-1 ring-border shadow-lg"
+          title={
+            <div className="text-center">
+              <span className="inline-flex items-center rounded-full px-3.5 py-1.5 text-sm font-semibold tracking-wide bg-[#010775]/10 text-[#010775] mb-4">
+                COMPREHENSIVE PRICING
+              </span>
+              <span className="bg-gradient-to-r from-[#010775] via-[#2A3BCF] to-[#DD0000] bg-clip-text text-transparent">
+                Complete IT Solutions & Pricing
+              </span>
+            </div>
+          }
+          titleClassName="text-4xl md:text-5xl font-extrabold tracking-tight"
+          description="Choose from our comprehensive range of IT support packages, device leasing options, and add-on services. All pricing in CAD with flexible payment options."
+        >
+          <ComprehensivePricing />
+        </Section>
+      </Container>
+
+      {/* Section divider */}
+      <div className="py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+        </div>
+      </div>
 
       {/* AI summary (anchor target for #ai-summary) */}
       <Container>
         <Section
           id="ai-summary"
-          className="relative isolate rounded-[2rem] bg-gradient-to-b from-[#0107750D] via-white to-[#DD00000D]"
+          className="relative isolate rounded-[2rem] bg-gradient-to-b from-[#0107750D] via-white to-[#DD00000D] ring-1 ring-border"
           title={
-            <span className="bg-gradient-to-r from-[#010775] via-[#2A3BCF] to-[#DD0000] bg-clip-text text-transparent">
-              AI solutions we implement
-            </span>
+            <div className="text-center">
+              <span className="inline-flex items-center rounded-full px-3.5 py-1.5 text-sm font-semibold tracking-wide bg-[#010775]/10 text-[#010775] mb-4">
+                AI & AUTOMATION
+              </span>
+              <span className="bg-gradient-to-r from-[#010775] via-[#2A3BCF] to-[#DD0000] bg-clip-text text-transparent">
+                AI solutions we implement
+              </span>
+            </div>
           }
           titleClassName="text-4xl md:text-5xl font-extrabold tracking-tight"
-          description="Temrink provides licensing, implementation, and training for the AI products below. Use this quick comparison to see what’s possible for your team."
+          description="Temrink provides licensing, implementation, and training for the AI products below. Use this quick comparison to see what's possible for your team."
         >
           <div className="overflow-x-auto rounded-2xl border bg-background">
             <table className="min-w-[780px] w-full text-left text-[15px] md:text-base leading-relaxed">
-              <thead className="border-b bg-white/60 text-sm uppercase tracking-wide">
+              <thead className="border-b bg-muted/50 text-sm uppercase tracking-wide">
                 <tr>
                   <th className="p-5">Solution</th>
                   <th className="p-5">Type</th>
@@ -180,38 +219,50 @@ const HomePage: React.FC = () => {
         </Section>
       </Container>
 
-      {/* Pricing + Testimonials */}
+      {/* Section divider */}
+      <div className="py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+        </div>
+      </div>
+
+      {/* Process (linked from the hero CTA) */}
+      <Process />
+
+      {/* Section divider */}
+      <div className="py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+        </div>
+      </div>
+
+      {/* Testimonials */}
       <Container>
         <Section
-          id="pricing"
-          className="relative isolate rounded-[2rem] bg-gradient-to-b from-[#0107750D] via-white to-[#DD00000D]"
-          title={
-            <span className="bg-gradient-to-r from-[#010775] via-[#2A3BCF] to-[#DD0000] bg-clip-text text-transparent">
-              Microsoft 365 Business Licenses — Pricing
-            </span>
-          }
-          titleClassName="text-4xl md:text-5xl font-extrabold tracking-tight"
-          description="Current Microsoft 365 Business SKUs and pricing available through Temrink."
-        >
-          <Pricing />
-        </Section>
-
-        <Section
           id="testimonials"
+          className="relative overflow-hidden"
           title="What Our Clients Say"
           description="Hear from those who have partnered with us."
         >
+          {/* background */}
+          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#F8FAFF] via-white to-[#F1F5FF]" />
           <Testimonials />
         </Section>
       </Container>
+
+      {/* Section divider */}
+      <div className="py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+        </div>
+      </div>
 
       {/* Standalone sections render their own containers */}
       <FAQ />
       <Stats />
 
-      {/* Microsoft partner banner replaces the old CTA */}
-      <MicrosoftBanner />
-    </>
+      {/* CTA removed */}
+    </div>
   );
 };
 

@@ -1,7 +1,9 @@
 // src/components/Pricing/PricingColumn.tsx
+import Link from "next/link";
 import clsx from "clsx";
 import { HiCheck } from "react-icons/hi2";
 import { IPricing } from "@/types";
+import { siteDetails } from "@/data/siteDetails";
 
 interface Props {
   tier: IPricing & { badge?: string };
@@ -35,6 +37,9 @@ const PricingColumn: React.FC<Props> = ({ tier, highlight }) => {
       "--brand-red": BRAND_RED,
     } as React.CSSProperties & Record<"--brand-blue" | "--brand-red", string>;
 
+  // Single source of truth for the contact page
+  const contactHref = siteDetails.contactPath || "/contact";
+
   return (
     <div
       className={clsx(
@@ -44,7 +49,6 @@ const PricingColumn: React.FC<Props> = ({ tier, highlight }) => {
       style={brandVars}
     >
       <div className="p-6 border-b border-gray-200 rounded-t-xl">
-        {/* Badge (optional) */}
         {badge && (
           <span className="mb-2 inline-flex items-center rounded-full bg-[color:var(--brand-blue)]/10 text-[color:var(--brand-blue)] px-3 py-1 text-xs font-semibold">
             {badge}
@@ -64,14 +68,16 @@ const PricingColumn: React.FC<Props> = ({ tier, highlight }) => {
           )}
         </div>
 
-        <button className={buttonClasses}>Get Started</button>
+        {/* CTA -> Contact page */}
+        <Link href={contactHref} className={buttonClasses} aria-label="Get Started (contact us)">
+          Get Started
+        </Link>
       </div>
 
       <div className="p-6 mt-1">
         <p className="font-bold mb-0">FEATURES</p>
         <p className="text-foreground-accent mb-5">Everything in basic, plus...</p>
 
-        {/* Uniform checkmarks */}
         <ul className="list-none space-y-3 mb-8">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start gap-3">

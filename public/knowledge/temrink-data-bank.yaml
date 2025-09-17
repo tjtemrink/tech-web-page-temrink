@@ -1,0 +1,373 @@
+Temrink_Data_Bank_v1.0
+
+last_updated: 2025-09-17
+brand:
+  name: Temrink Inc.
+  positioning: >
+    Canadian Cloud Solution Provider (CSP) and Managed Services Provider (MSP)
+    for startups and SMBs. We design, license, secure, automate, and support your
+    cloud workplace end-to-end.
+  voice_rules:
+    - Always speak as Temrink (first-party provider).
+    - Never mention upstream distributors or third parties (e.g., Sherweb).
+    - Emphasize outcomes (security, productivity, compliance, cost control).
+    - Offer a next step: audit, discovery, or quote.
+  geographic_scope:
+    onsite_support_area: Greater Toronto Area (GTA) with 2-hour minimum for on-site.
+  service_hours:
+    business_hours: Standard helpdesk and operations.
+    after_hours: Premium response; surcharges may apply (see pricing rules).
+
+catalog:
+  licensing:
+    description: >
+      Temrink provides and manages the full commercial catalog for Microsoft 365,
+      Azure, and Google Workspace. We handle procurement, provisioning, security
+      hardening, lifecycle, and consolidated billing. (Do not mention distributors.)
+    microsoft_365_examples:
+      - Microsoft 365 Business: Basic, Standard, Premium
+      - Microsoft 365 Enterprise: E3, E5
+      - Add-ons: Defender (Endpoint/Office/Identity), Intune, Compliance add-ons
+      - Teams Phone, Audio Conferencing, Power BI Pro/Premium per user
+      - Microsoft Copilot for Microsoft 365
+    azure_examples:
+      - Azure subscriptions (IaaS/PaaS/SaaS), landing zones, VNets, storage, compute
+      - Azure AD/Entra ID, Conditional Access, MFA, PIM
+      - Defender for Cloud, Microsoft Sentinel (architecture & advisory)
+    google_workspace_examples:
+      - Business Starter, Standard, Plus; Enterprise tiers
+    licensing_support:
+      - Consolidated billing and tenant admin
+      - License right-sizing and cost optimization
+      - Security baselines aligned to plan capabilities
+
+  managed_it_packages:
+    # All per-user, per-month packages below. Minimums and after-hours rules included.
+    essential_it_support:
+      price: "$25/user/month (min $250)"
+      scope: "Helpdesk for email/collaboration & essential IT support."
+      notes: "Best for very small teams that need dependable core support."
+      citation: ""
+    advanced_it_and_security:
+      price: "$45/user/month (min $450)"
+      scope: "Security, device management (Intune), and compliance controls."
+      requirement: "Required for Microsoft 365 Business Premium environments."
+      citation: ""
+    cloud_optimized_it:
+      price: "$35/user/month (min $350)"
+      scope: "Support tailored to each user’s license mix; flexible & cost-aware."
+      citation: ""
+    fully_managed_it:
+      price: "$75/user/month (min $750)"
+      scope: "Full IT outsourcing: management, security, compliance & strategy."
+      business_hours_only: true
+      after_hours_surcharge_rule: "$25/hour on top of monthly charges when outside business hours."
+      citation: ""
+
+  managed_device_leasing:
+    description: "Business-grade Windows laptops & MacBooks bundled with Microsoft 365 and full IT support."
+    tiers:
+      essential_windows:
+        price: "$115/user/month"
+        description: "Business-grade Windows laptop with Microsoft 365 Business Premium."
+        citation: ""
+      essential_mac:
+        price: "$135/user/month"
+        description: "Business-grade MacBook Air with Microsoft 365 Business Premium."
+        citation: ""
+      advanced_windows:
+        price: "$150/user/month"
+        description: "Security-focused; compliance + MDM."
+        citation: ""
+      advanced_mac:
+        price: "$170/user/month"
+        description: "Security-focused; compliance + MDM."
+        citation: ""
+      fully_managed_windows:
+        price: "$200/user/month"
+        description: "High-performance laptop with fully outsourced IT."
+        citation: ""
+      fully_managed_mac:
+        price: "$225/user/month"
+        description: "High-performance MacBook with fully outsourced IT."
+        citation: ""
+    included_services:
+      - "Device setup & configuration"
+      - "Security hardening: MFA, disk encryption (BitLocker/FileVault), AV"
+      - "Remote IT support (business hours) & hardware failure replacement"
+      - "Intune device management & compliant baselines (higher tiers)"
+      - "Backup & Disaster Recovery included in Advanced & Fully Managed"
+      - "Zero Trust enforcement (Fully Managed)"
+    citation: ""
+
+  hourly_support:
+    notes: "Pay-as-you-go for organizations not on a package or for overflow needs."
+    rate_card:
+      standard_it_support_business_hours:
+        price: "$75/hour"
+        description: "General IT, M365 assistance, email troubleshooting."
+        citation: ""
+      standard_it_support_after_hours:
+        price: "$100/hour"
+        description: "General IT support after hours/weekends."
+        citation: ""
+      advanced_it_security_business_hours:
+        price: "$100/hour"
+        description: "Security configs, compliance, Defender, Intune policies."
+        citation: ""
+      advanced_it_security_after_hours:
+        price: "$125/hour"
+        description: "Security configs after hours/weekends."
+        citation: ""
+      cloud_automation_consulting_business_hours:
+        price: "$125/hour"
+        description: "Power Automate/Power Apps, Azure cost optimization, licensing review."
+        citation: ""
+      cloud_automation_consulting_after_hours:
+        price: "$150/hour"
+        description: "Automation & cloud consulting after hours/weekends."
+        citation: ""
+      emergency_it_business_hours:
+        price: "$150/hour"
+        description: "Critical incidents & urgent troubleshooting."
+        citation: ""
+      emergency_it_after_hours:
+        price: "$200/hour"
+        description: "Critical incidents after hours/weekends."
+        citation: ""
+      onsite_it_support_gta:
+        price: "$150/hour (2-hour min.)"
+        description: "Hardware setup, network configuration, hands-on assistance."
+        citation: ""
+    discounts:
+      bulk_hours_10plus: "10% discount when pre-purchasing 10+ hours."
+      retainer_option: "Custom hourly rates available for regular support without a fixed package."
+
+  add_ons_flat_rate:
+    data_migration_device_setup:
+      price: "$100 per device"
+      description: "One-time setup for new devices."
+      citation: ""
+    custom_security_compliance_policies:
+      price: "$500 per company"
+      description: "Tailored security & compliance policies."
+      citation: ""
+    email_data_migration:
+      price: "$100 per user"
+      description: "Secure migration of mailboxes/files."
+      citation: ""
+    custom_power_apps_development:
+      price: "Starting at $500 per app"
+      description: "Line-of-business app development & workflow automation."
+      citation: ""
+    security_compliance_audit:
+      price: "$1,000 per audit"
+      description: "Comprehensive security & compliance audit."
+      citation: ""
+    sharepoint_teams_intranet_setup:
+      price: "$750 per site"
+      description: "Team sites, governance, and secure collaboration."
+      citation: ""
+    azure_cost_optimization_review:
+      price: "$500 per review"
+      description: "Right-size resources, reserved instances, spend guardrails."
+      citation: ""
+    global_discounts:
+      annual_prepay_discount: "10% discount for annual payments."
+      long_term_contracts: "Custom pricing available for 12+ month agreements."
+
+  ai_and_automation_services:
+    power_platform:
+      - Power Automate: "Process automation, approvals, notifications, RPA connectors."
+      - Power Apps: "Custom LOB applications; canvas & model-driven."
+      - Power BI: "Operational dashboards; M365 & SaaS data integrations."
+    azure_ai:
+      - "AI chatbots using Azure OpenAI + Azure AI Search (enterprise retrieval)."
+      - "Azure AI Document Intelligence for data extraction (forms, invoices, IDs)."
+      - "Cognitive Services (Language, Vision) integrations."
+    automation_starters:
+      - "Invoice ingestion → approval → posting → archive"
+      - "Attendance/HR flows (sync to DB, alerts, summaries)"
+      - "SharePoint/Teams provisioning workflows"
+      - "Email-to-ticket automation; categorization & routing"
+    governance_and_cost:
+      - "Azure cost optimization (budgets, alerts, reserved capacity)."
+      - "Security baselines and compliance mappings (M365/Entra/Intune)."
+
+engagement:
+  onboarding_steps:
+    - Discovery call → understand users, licenses, devices, risk/compliance.
+    - Lightweight audit → identity, devices, email security, data sharing posture.
+    - Plan & quote → licenses, support tier, add-ons, and AI/automation scope.
+    - Tenant hardening → MFA, CA, baseline policies; device enrollment (Intune).
+    - Migrations & cutover → email/data/SharePoint/Teams.
+    - Run & improve → monthly reporting, security reviews, cost tuning.
+
+pricing_rules:
+  after_hours_on_packages: >
+    Package services are available during business hours only. Any service outside
+    business hours will incur an additional $25/hour on top of monthly charges.
+  onsite_minimum: "On-site support billed with a 2-hour minimum in GTA."
+  discounts:
+    - "Annual prepay: 10% off packages and eligible add-ons."
+    - "Bulk user discounts available >20 seats (consult for quote)."
+    - "Bulk hours: 10% off when purchasing 10+ hourly hours upfront."
+
+qualification_questions:
+  company_profile:
+    - "How many users need email/productivity today? In 12 months?"
+    - "What licenses are in place now? (M365/Google, Copilot, Teams Phone, Power BI, etc.)"
+    - "Any industry compliance requirements? (e.g., PIPEDA, HIPAA-like, SOC 2)"
+    - "Remote, hybrid, or on-site? Which locations?"
+  security_posture:
+    - "Is MFA enforced for everyone? Any Conditional Access or device compliance rules?"
+    - "How are laptops/phones managed today? Any encryption or EDR/AV in place?"
+    - "Any recent phishing or incident history?"
+  devices_and_infra:
+    - "How many Windows vs Mac devices? Any BYOD?"
+    - "Any servers, NAS, or line-of-business apps we should integrate?"
+  collaboration_and_data:
+    - "Do you use SharePoint/Teams/OneDrive/Google Drive? Any guest sharing controls?"
+    - "Email security & retention needs?"
+  automation_and_ai_interest:
+    - "Top 3 manual processes to automate?"
+    - "Would an internal chatbot help staff find policies, SOPs, and documents?"
+  budget_timeline:
+    - "Budget range for support and devices?"
+    - "Preferred start date and any blackout dates for migration/cutover?"
+
+recommendation_logic:
+  rules:
+    - name: require_advanced_for_biz_premium
+      if: "Client uses or plans to use Microsoft 365 Business Premium."
+      then:
+        package: "Advanced IT & Security"
+        rationale: "Premium environments need device management & compliance by design."
+        citation: ""
+    - name: small_team_starter
+      if: "Team < 10 users, email & core support only, low risk."
+      then:
+        package: "Essential IT Support"
+        price_hint: "$25/user/month (min $250)"
+        citation: ""
+    - name: mixed_license_flex
+      if: "Mixed license tiers (e.g., some Basic, some Premium) and cost sensitivity."
+      then:
+        package: "Cloud-Optimized IT"
+        price_hint: "$35/user/month (min $350)"
+        citation: ""
+    - name: full_outsource
+      if: "Client wants to outsource IT end-to-end with recurring strategy reviews."
+      then:
+        package: "Fully Managed IT"
+        price_hint: "$75/user/month (min $750)"
+        notes: "Business hours; after-hours work billed at +$25/h on top."
+        citation: ""
+    - name: need_hardware_plus_support
+      if: "Client needs laptops bundled with licenses and support."
+      then:
+        package: "Managed Device Leasing"
+        options:
+          - "Essential Windows ($115)"
+          - "Essential Mac ($135)"
+          - "Advanced Windows ($150)"
+          - "Advanced Mac ($170)"
+          - "Fully Managed Windows ($200)"
+          - "Fully Managed Mac ($225)"
+        citation: ""
+    - name: urgent_or_security_sensitive
+      if: "Incident response or immediate security changes required."
+      then:
+        hourly:
+          business_hours: "Emergency IT Support $150/h"
+          after_hours: "Emergency IT Support $200/h"
+        citation: ""
+    - name: ai_automation_initiative
+      if: "Client wants workflows automated or a knowledge chatbot."
+      then:
+        consult:
+          business_hours: "Cloud & Automation Consulting $125/h"
+          after_hours: "Cloud & Automation Consulting $150/h"
+        add_ons:
+          - "Custom Power Apps (from $500/app)"
+          - "Azure Cost Optimization Review ($500)"
+        citation: "\n\n"
+
+upsell_cues:
+  - cue: "Handling sensitive data or compliance."
+    suggest:
+      - "Advanced IT & Security"
+      - "Security & Compliance Audit ($1,000)"
+    citation: ""
+  - cue: "Rapid growth or new hires monthly."
+    suggest:
+      - "Cloud-Optimized IT"
+      - "Data Migration & Device Setup ($100/device)"
+    citation: ""
+  - cue: "Email migration or tenant consolidation."
+    suggest:
+      - "Email & Data Migration ($100/user)"
+      - "Essential or Advanced IT Package"
+    citation: ""
+  - cue: "Internal portal or team hubs needed."
+    suggest:
+      - "SharePoint & Teams Intranet Setup ($750/site)"
+    citation: ""
+
+response_snippets:
+  # Safe, reusable building blocks the chatbot can assemble in replies.
+  value_prop_short: >
+    Temrink sets up and secures your modern workplace, manages licenses,
+    supports your users, and automates your busiest workflows—so you can
+    move faster with lower risk and predictable costs.
+  package_summary_grid:
+    - name: "Essential IT Support"
+      who: "Very small teams needing reliable helpdesk & email support."
+      includes: ["Helpdesk", "Email/Collab support"]
+      price_hint: "$25/user/mo (min $250)"
+    - name: "Advanced IT & Security"
+      who: "Teams on Microsoft 365 Business Premium or needing compliance."
+      includes: ["Helpdesk", "Security", "Device mgmt (Intune)", "Compliance"]
+      price_hint: "$45/user/mo (min $450)"
+    - name: "Cloud-Optimized IT"
+      who: "Mixed license environments; growth-minded cost control."
+      includes: ["Tailored support by license", "Flexible SLAs"]
+      price_hint: "$35/user/mo (min $350)"
+    - name: "Fully Managed IT"
+      who: "Organizations outsourcing IT end-to-end."
+      includes: ["Full IT mgmt", "Security", "Compliance", "Strategy"]
+      price_hint: "$75/user/mo (min $750)"
+  device_bundles_list:
+    - "Windows Essential ($115) | Windows Advanced ($150) | Windows Fully Managed ($200)"
+    - "Mac Essential ($135) | Mac Advanced ($170) | Mac Fully Managed ($225)"
+  after_hours_notice: >
+    Work outside business hours is billed at +$25/h on top of package rates.
+  onsite_notice: >
+    On-site service within the GTA is $150/h with a 2-hour minimum.
+  discount_notice: >
+    Annual prepay earns 10% off; custom pricing available for 12+ month terms.
+
+safety_and_brand_rules: >
+  Never mention upstream distributors or the name “Sherweb.”
+  If asked “who resells your licenses,” respond: “Temrink is your CSP/MSP and we manage your subscriptions directly.”
+  Don’t promise legal/regulatory certification; position as “aligned controls” and “compliance-supporting configurations.”
+  For medical, legal, or public-sector compliance: recommend a Security & Compliance Audit first.
+  If a requirement exceeds standard package scope, propose hourly block (with bulk discount) or a custom SOW.
+
+call_to_action_templates:
+  discovery_call: >
+    I can draft a recommended package and implementation plan in 24–48 hours.
+    Would you like a discovery session to review users, devices, security, and
+    any automation opportunities?
+  audit_first: >
+    Because you handle sensitive data, I recommend a quick Security & Compliance
+    Audit to baseline risk, then we’ll right-size your package.
+  quote_device_bundles: >
+    If you’d like bundled hardware + support, I can quote Windows or Mac options
+    from Essential to Fully Managed and plan your rollout.
+
+notes_for_cursor_integration: >
+  Treat this entire YAML as read-only knowledge.
+  The chatbot should: (1) ask qualification questions, (2) map answers to recommendation_logic.rules,
+  (3) present 1–2 best-fit packages with price hints and relevant add-ons, and (4) offer a discovery call or audit.
+  When quoting specific numbers, keep the inline citations attached so you (or an admin chat) can trace back to the source doc instantly.
