@@ -6,7 +6,6 @@ import Container from "@/components/Container";
 import { heroDetails } from "@/data/hero";
 import { siteDetails } from "@/data/siteDetails";
 
-const BRAND_BLUE = "#010775";
 
 const Hero: React.FC = () => {
   // Always route “Book a meeting” to the contact page

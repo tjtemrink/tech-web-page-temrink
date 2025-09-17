@@ -64,3 +64,4 @@ export const decisionMatrixData: DecisionMatrixRow[] = [
     recommendation: "Ensure Advanced IT & Security coverage for Premium seats"
   }
 ];
+

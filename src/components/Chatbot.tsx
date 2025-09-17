@@ -3,7 +3,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import yaml from 'js-yaml';
 import { HiChatBubbleLeftRight, HiXMark, HiPaperAirplane } from 'react-icons/hi2';
-import { HiCheck } from 'react-icons/hi2';
 
 interface Message {
   id: string;
@@ -18,8 +17,6 @@ interface QuickAction {
   isPrimary?: boolean;
 }
 
-const BRAND_BLUE = "#010775";
-const BRAND_RED = "#DD0000";
 
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);

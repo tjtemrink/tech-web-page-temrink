@@ -1,8 +1,5 @@
 import React from 'react';
-import { HiCheck, HiClock, HiDevicePhoneMobile, HiCog, HiShieldCheck } from 'react-icons/hi2';
-
-const BRAND_BLUE = "#010775";
-const BRAND_RED = "#DD0000";
+import { HiCheck, HiDevicePhoneMobile, HiCog, HiShieldCheck } from 'react-icons/hi2';
 
 interface Package {
   name: string;

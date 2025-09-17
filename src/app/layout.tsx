@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Source_Sans_3, Manrope } from "next/font/google";
+import { Source_Sans_3 } from "next/font/google";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,7 +9,6 @@ import { siteDetails } from "@/data/siteDetails";
 
 import "./globals.css";
 
-const manrope = Manrope({ subsets: ["latin"], display: "swap" });
 const sourceSans = Source_Sans_3({ subsets: ["latin"], display: "swap" });
 
 // Absolute base URL for OG/Twitter images

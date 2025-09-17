@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
   const finalSocials: Record<string, string> = {};
   for (const [rawKey, urlRaw] of Object.entries(merged)) {
     const key = normalizePlatformKey(rawKey);
-    let url = urlRaw || "";
+    const url = urlRaw || "";
 
     // Always enforce the official X/Twitter link; skip any other/empty one
     if (key === "x") {
