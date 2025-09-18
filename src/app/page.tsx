@@ -116,13 +116,13 @@ const HomePage: React.FC = () => {
       <Hero />
 
       {/* Section Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent my-16" />
 
       {/* Core Services Section */}
       <Services />
 
       {/* Section Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent my-16" />
 
       {/* AI Solutions Overview Section */}
       <Container>
@@ -174,7 +174,7 @@ const HomePage: React.FC = () => {
       </Container>
 
       {/* Section Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent my-16" />
 
       {/* Decision Matrix Section */}
       <Container>
@@ -223,7 +223,7 @@ const HomePage: React.FC = () => {
       </Container>
 
       {/* Section Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent my-16" />
 
       {/* Pricing CTA Section */}
       <Container>
@@ -247,19 +247,19 @@ const HomePage: React.FC = () => {
       </Container>
 
       {/* Section Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent my-16" />
 
       {/* Testimonials Section */}
       <Testimonials />
 
       {/* Section Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent my-16" />
 
       {/* FAQ Section */}
       <FAQ />
 
       {/* Section Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent my-16" />
 
       {/* Stats/Affiliations Section */}
       <Stats />

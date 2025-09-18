@@ -47,7 +47,7 @@ const FAQ: React.FC = () => {
     } as React.CSSProperties & Record<"--brand-blue" | "--brand-red", string>;
 
   return (
-    <section id="faq" className="py-10 lg:py-20 relative overflow-hidden">
+    <section id="faq" className="py-20 lg:py-28 relative overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-800/50 via-slate-700/50 to-slate-800/50" />
       <div className="mx-auto max-w-7xl px-6 flex flex-col lg:flex-row gap-10">
         {/* Left column */}

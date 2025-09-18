@@ -10,7 +10,7 @@ const items = [
 
 const Stats: React.FC = () => {
   return (
-    <section id="affiliations" className="py-10 lg:py-20 bg-slate-800/30">
+    <section id="affiliations" className="py-20 lg:py-28 bg-slate-800/30">
       <div className="mx-auto max-w-7xl px-6">
         <h3 className="text-2xl md:text-3xl font-bold text-white">
           Affiliations & Memberships

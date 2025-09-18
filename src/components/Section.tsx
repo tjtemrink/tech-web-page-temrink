@@ -21,11 +21,11 @@ const Section: React.FC<React.PropsWithChildren<Props>> = ({
   descriptionClassName,
 }) => {
   return (
-    <section id={id} className={clsx("py-12 md:py-20", className)}>
+    <section id={id} className={clsx("py-16 md:py-24", className)}>
       <SectionTitle>
         <h2
           className={clsx(
-            "text-center mb-3 text-3xl md:text-5xl font-extrabold leading-tight",
+            "text-center mb-6 text-3xl md:text-5xl font-extrabold leading-tight",
             titleClassName
           )}
         >
@@ -36,7 +36,7 @@ const Section: React.FC<React.PropsWithChildren<Props>> = ({
       {description ? (
         <p
           className={clsx(
-            "mb-12 text-center text-base md:text-lg text-muted-foreground",
+            "mb-16 text-center text-base md:text-lg text-muted-foreground",
             descriptionClassName
           )}
         >

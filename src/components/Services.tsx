@@ -57,7 +57,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="features" className="py-16 md:py-24 relative overflow-hidden">
+    <section id="features" className="py-20 md:py-28 relative overflow-hidden">
       {/* background */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-800/50 via-slate-700/50 to-slate-800/50" />
       <Container>
