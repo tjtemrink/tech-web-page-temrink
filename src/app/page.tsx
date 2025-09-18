@@ -7,6 +7,48 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Stats from "@/components/Stats";
 import DecisionMatrix from "@/components/DecisionMatrix";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Temrink - Complete IT Solutions & AI Automation for SMBs",
+  description: "Transform your business with Temrink's comprehensive IT support, Microsoft 365 management, AI automation, and device leasing services. Expert IT helpdesk and Copilot implementation for small to medium businesses.",
+  keywords: [
+    "IT support",
+    "Microsoft 365",
+    "AI automation",
+    "Copilot implementation",
+    "device leasing",
+    "IT helpdesk",
+    "small business IT",
+    "managed IT services",
+    "business automation",
+    "cloud solutions"
+  ],
+  openGraph: {
+    title: "Temrink - Complete IT Solutions & AI Automation for SMBs",
+    description: "Transform your business with comprehensive IT support, Microsoft 365 management, AI automation, and device leasing services.",
+    type: "website",
+    url: "https://temrink.com",
+    siteName: "Temrink",
+    images: [
+      {
+        url: "/images/hero-mockup.webp",
+        width: 1200,
+        height: 630,
+        alt: "Temrink IT Solutions Dashboard"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Temrink - Complete IT Solutions & AI Automation for SMBs",
+    description: "Transform your business with comprehensive IT support, Microsoft 365 management, AI automation, and device leasing services.",
+    images: ["/images/hero-mockup.webp"]
+  },
+  alternates: {
+    canonical: "https://temrink.com"
+  }
+};
 
 /** AI quick summary rows (clean + simple) */
 type AIRow = {
@@ -69,20 +111,20 @@ const aiRows: AIRow[] = [
 
 const HomePage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Hero with partner strip */}
+    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      {/* Hero Section */}
       <Hero />
 
-      {/* Section divider */}
+      {/* Section Divider */}
       <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent" />
 
-      {/* Core services */}
+      {/* Core Services Section */}
       <Services />
 
-      {/* Section divider */}
+      {/* Section Divider */}
       <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent" />
 
-      {/* AI summary (anchor target for #ai-summary) */}
+      {/* AI Solutions Overview Section */}
       <Container>
         <Section
           id="ai-summary"
@@ -131,10 +173,10 @@ const HomePage: React.FC = () => {
         </Section>
       </Container>
 
-      {/* Section divider */}
+      {/* Section Divider */}
       <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent" />
 
-      {/* Decision Matrix */}
+      {/* Decision Matrix Section */}
       <Container>
         <Section
           id="decision-matrix"
@@ -154,22 +196,24 @@ const HomePage: React.FC = () => {
         >
           <DecisionMatrix />
 
-          {/* Chatbot Help Textbox */}
+          {/* Chatbot Help Section */}
           <div className="mt-8 bg-gradient-to-r from-[#2A3BCF]/20 to-[#DD0000]/20 rounded-2xl border border-[#2A3BCF]/30 p-6 backdrop-blur-sm">
             <h3 className="text-xl font-bold text-white mb-3">Need Help Deciding?</h3>
-            <p className="text-slate-300 mb-4">
+            <p className="text-slate-300 mb-4 font-medium leading-relaxed">
               Not sure which package is right for you? Ask our chatbot for personalized recommendations or check out our detailed pricing page.
             </p>
             <div className="flex flex-wrap gap-4">
               <a
                 href="#chatbot"
                 className="inline-flex items-center justify-center rounded-xl bg-[#2A3BCF] px-6 py-3 text-white font-semibold hover:bg-[#010775] transition-colors"
+                aria-label="Ask our chatbot for package recommendations"
               >
                 Ask the Chatbot
               </a>
               <a
                 href="/pricing"
                 className="inline-flex items-center justify-center rounded-xl border border-white/40 text-white hover:bg-white/10 px-6 py-3 font-semibold transition-colors"
+                aria-label="View detailed pricing information"
               >
                 View Detailed Pricing
               </a>
@@ -178,7 +222,7 @@ const HomePage: React.FC = () => {
         </Section>
       </Container>
 
-      {/* Section divider */}
+      {/* Section Divider */}
       <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent" />
 
       {/* Pricing CTA Section */}
@@ -194,6 +238,7 @@ const HomePage: React.FC = () => {
             <a
               href="/pricing"
               className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-[#2A3BCF] to-[#010775] px-8 py-4 text-white font-semibold shadow-xl shadow-blue-900/50 hover:shadow-blue-900/60 hover:scale-105 transition-all duration-200 text-lg"
+              aria-label="View all pricing packages and get started"
             >
               View All Pricing
             </a>
@@ -201,24 +246,24 @@ const HomePage: React.FC = () => {
         </Section>
       </Container>
 
-      {/* Section divider */}
+      {/* Section Divider */}
       <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent" />
 
-      {/* Testimonials */}
+      {/* Testimonials Section */}
       <Testimonials />
 
-      {/* Section divider */}
+      {/* Section Divider */}
       <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent" />
 
-      {/* FAQ */}
+      {/* FAQ Section */}
       <FAQ />
 
-      {/* Section divider */}
+      {/* Section Divider */}
       <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent" />
 
-      {/* Stats */}
+      {/* Stats/Affiliations Section */}
       <Stats />
-    </div>
+    </main>
   );
 };
 
