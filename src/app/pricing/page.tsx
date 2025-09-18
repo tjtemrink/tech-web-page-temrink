@@ -56,14 +56,14 @@ export default function PricingPage() {
         </section>
 
         {/* Comprehensive Pricing */}
-        <Section className="py-20">
+        <div className="py-20">
           <Container>
             <ComprehensivePricing />
           </Container>
-        </Section>
+        </div>
 
         {/* Microsoft 365 Licensing Section */}
-        <Section className="py-20">
+        <div className="py-20">
           <Container>
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -77,7 +77,7 @@ export default function PricingPage() {
             </div>
             <Pricing />
           </Container>
-        </Section>
+        </div>
 
         {/* Fine Print */}
         <Container>
