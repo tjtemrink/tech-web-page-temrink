@@ -59,14 +59,14 @@ export default function Services() {
   return (
     <section id="features" className="py-16 md:py-24 relative overflow-hidden">
       {/* background */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#F5F7FF] via-white to-[#F8FAFF]" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-800/50 via-slate-700/50 to-slate-800/50" />
       <Container>
         <div className="text-center">
-          <span className="inline-flex items-center rounded-full px-3.5 py-1.5 text-sm font-semibold tracking-wide bg-[#010775]/10 text-[#010775]">
+          <span className="inline-flex items-center rounded-full px-3.5 py-1.5 text-sm font-semibold tracking-wide bg-[#2A3BCF]/20 text-[#2A3BCF] border border-[#2A3BCF]/30">
             CORE SERVICES
           </span>
-          <h2 className="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight">What we provide</h2>
-          <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight text-white">What we provide</h2>
+          <p className="mt-3 text-slate-300 font-medium max-w-2xl mx-auto leading-relaxed">
             Four core services to stabilize your IT and unlock AI‑powered productivity.
           </p>
         </div>
@@ -75,7 +75,7 @@ export default function Services() {
           {services.map((s) => (
             <article
               key={s.key}
-              className="group rounded-2xl border bg-white/70 shadow-sm ring-1 ring-slate-200 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md"
+              className="group rounded-2xl border border-slate-600/50 bg-white shadow-lg ring-1 ring-slate-600/30 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-xl"
             >
               {/* Edge-to-edge image with rounded top corners (no white space) */}
               <div className="relative overflow-hidden rounded-t-2xl">
@@ -92,13 +92,13 @@ export default function Services() {
               </div>
 
               <div className="p-6 md:p-6">
-                <h3 className="text-lg md:text-xl font-semibold" style={{ color: BRAND_BLUE }}>
+                <h3 className="text-lg md:text-xl font-semibold text-[#2A3BCF]">
                   {s.title}
                 </h3>
 
                 {/* one‑line blurb */}
                 {s.blurb ? (
-                  <p className="mt-2 text-sm text-muted-foreground">
+                  <p className="mt-2 text-sm text-slate-600">
                     {s.blurb}
                   </p>
                 ) : null}
@@ -107,12 +107,12 @@ export default function Services() {
                 <ul className="mt-4 space-y-2.5 text-[15px] leading-relaxed">
                   {s.points.map((p, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <span className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[color:var(--brand-blue,#010775)] text-white">
+                      <span className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#2A3BCF] text-white">
                         <svg viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="currentColor" aria-hidden="true">
                           <path fillRule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0l-3.5-3.5a1 1 0 111.4-1.4l2.8 2.8 6.8-6.8a1 1 0 011.4 0z" clipRule="evenodd" />
                         </svg>
                       </span>
-                      <span>{p}</span>
+                      <span className="text-slate-700">{p}</span>
                     </li>
                   ))}
                 </ul>

@@ -10,12 +10,12 @@ const items = [
 
 const Stats: React.FC = () => {
   return (
-    <section id="affiliations" className="py-10 lg:py-20 bg-muted/30">
+    <section id="affiliations" className="py-10 lg:py-20 bg-slate-800/30">
       <div className="mx-auto max-w-7xl px-6">
-        <h3 className="text-2xl md:text-3xl font-bold text-slate-900">
+        <h3 className="text-2xl md:text-3xl font-bold text-white">
           Affiliations & Memberships
         </h3>
-        <p className="mt-2 text-slate-600">
+        <p className="mt-2 text-slate-300 font-medium">
           Temrink is an active member of business and entrepreneurship communities in the GTA.
         </p>
 
@@ -23,10 +23,10 @@ const Stats: React.FC = () => {
           {items.map((i) => (
             <li
               key={i.name}
-              className="flex items-start gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-200 shadow-sm"
+              className="flex items-start gap-3 rounded-2xl bg-white p-4 ring-1 ring-slate-600/50 shadow-lg"
             >
-              <BsCheckCircleFill className="h-5 w-5" style={{ color: BRAND_BLUE }} />
-              <span className="font-medium text-slate-800">{i.name}</span>
+              <BsCheckCircleFill className="h-5 w-5 text-[#2A3BCF]" />
+              <span className="font-semibold text-slate-900">{i.name}</span>
             </li>
           ))}
         </ul>
