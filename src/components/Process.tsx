@@ -47,7 +47,7 @@ export default function Process() {
                 IMPLEMENTATION PROCESS
               </span>
               <h2 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">How we implement AI</h2>
-              <p className="mt-2 text-muted-foreground max-w-2xl">
+              <p className="mt-2 text-slate-300 font-medium max-w-2xl leading-relaxed">
                 A simple, low-risk path from discovery to AI-powered operations.
               </p>
             </header>
@@ -69,7 +69,7 @@ export default function Process() {
                             <h3 className="text-base md:text-lg font-semibold text-foreground group-hover:text-[#010775] transition-colors">
                               {s.title}
                             </h3>
-                            <p className="mt-1 text-sm md:text-[15px] leading-relaxed text-muted-foreground">
+                            <p className="mt-1 text-sm md:text-[15px] leading-relaxed text-slate-300 font-medium">
                               {s.desc}
                             </p>
                           </div>

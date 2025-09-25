@@ -128,7 +128,7 @@ const HomePage: React.FC = () => {
       <Container>
         <Section
           id="ai-summary"
-          className="relative isolate rounded-[2rem] bg-gradient-to-b from-slate-800/90 via-slate-700/90 to-slate-800/90 ring-1 ring-slate-600/50 shadow-2xl backdrop-blur-sm"
+          className="relative isolate rounded-[2rem] bg-gradient-to-b from-slate-800/90 via-slate-700/90 to-slate-800/90 ring-1 ring-slate-600/50 shadow-2xl backdrop-blur-sm hover:shadow-3xl hover:scale-[1.02] transition-all duration-300 hover:ring-slate-500/70"
           title={
             <div className="text-center">
               <span className="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold tracking-wide bg-[#2A3BCF]/20 text-[#2A3BCF] border border-[#2A3BCF]/30 mb-6">
@@ -180,7 +180,7 @@ const HomePage: React.FC = () => {
       <Container>
         <Section
           id="decision-matrix"
-          className="relative isolate rounded-[2rem] bg-gradient-to-b from-slate-800/90 via-slate-700/90 to-slate-800/90 ring-1 ring-slate-600/50 shadow-2xl backdrop-blur-sm"
+          className="relative isolate rounded-[2rem] bg-gradient-to-b from-slate-800/90 via-slate-700/90 to-slate-800/90 ring-1 ring-slate-600/50 shadow-2xl backdrop-blur-sm hover:shadow-3xl hover:scale-[1.02] transition-all duration-300 hover:ring-slate-500/70"
           title={
             <div className="text-center">
               <span className="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold tracking-wide bg-[#2A3BCF]/20 text-[#2A3BCF] border border-[#2A3BCF]/30 mb-6">
@@ -229,7 +229,7 @@ const HomePage: React.FC = () => {
       <Container>
         <Section
           id="pricing"
-          className="relative isolate rounded-[2rem] bg-gradient-to-b from-slate-800/90 via-slate-700/90 to-slate-800/90 ring-1 ring-slate-600/50 shadow-2xl backdrop-blur-sm"
+          className="relative isolate rounded-[2rem] bg-gradient-to-b from-slate-800/90 via-slate-700/90 to-slate-800/90 ring-1 ring-slate-600/50 shadow-2xl backdrop-blur-sm hover:shadow-3xl hover:scale-[1.02] transition-all duration-300 hover:ring-slate-500/70"
           title="Ready to Get Started?"
           titleClassName="text-3xl md:text-4xl font-bold text-center text-white"
           description="Choose from our comprehensive IT support packages and start transforming your business today."

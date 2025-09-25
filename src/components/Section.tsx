@@ -25,7 +25,7 @@ const Section: React.FC<React.PropsWithChildren<Props>> = ({
       <SectionTitle>
         <h2
           className={clsx(
-            "text-center mb-6 text-3xl md:text-5xl font-extrabold leading-tight",
+            "text-center mb-8 text-3xl md:text-5xl font-extrabold leading-tight",
             titleClassName
           )}
         >
@@ -36,7 +36,7 @@ const Section: React.FC<React.PropsWithChildren<Props>> = ({
       {description ? (
         <p
           className={clsx(
-            "mb-16 text-center text-base md:text-lg text-muted-foreground",
+            "mb-12 text-center text-base md:text-lg text-slate-300 font-medium leading-relaxed max-w-4xl mx-auto",
             descriptionClassName
           )}
         >

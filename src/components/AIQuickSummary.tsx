@@ -6,7 +6,7 @@ export default function AIQuickSummary() {
     <section id="ai" className="pt-16">
       <Container>
         <h2 className="text-2xl md:text-3xl font-bold">AI at a glance</h2>
-        <p className="mt-3 text-muted-foreground max-w-3xl">
+        <p className="mt-3 text-slate-300 font-medium max-w-3xl leading-relaxed">
           Skimmable overview of major Copilot types and other AI licenses via Sherweb, plus best-fit industries.
         </p>
 
@@ -25,7 +25,7 @@ export default function AIQuickSummary() {
                 <tr key={r.solution} className="border-b last:border-0 align-top">
                   <td className="p-4 font-medium">
                     {r.solution}
-                    {r.notes ? <span className="block text-xs text-muted-foreground mt-1">{r.notes}</span> : null}
+                    {r.notes ? <span className="block text-xs text-slate-400 mt-1 font-medium">{r.notes}</span> : null}
                   </td>
                   <td className="p-4">{r.type}</td>
                   <td className="p-4">
@@ -44,7 +44,7 @@ export default function AIQuickSummary() {
           </table>
         </div>
 
-        <p className="mt-4 text-xs text-muted-foreground">
+        <p className="mt-4 text-xs text-slate-400 font-medium">
           Sources: Microsoft / Google official docs and Sherweb marketplace listings.
         </p>
       </Container>

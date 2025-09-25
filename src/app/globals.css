@@ -41,6 +41,72 @@ body {
   }
 }
 
+/* Futuristic Cursor Animations */
+@keyframes particleFade {
+  0% {
+    opacity: 1;
+    transform: scale(0.5) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5) translateY(-20px);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes cursorGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(42, 59, 207, 0.3), 0 0 20px rgba(42, 59, 207, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(42, 59, 207, 0.5), 0 0 30px rgba(42, 59, 207, 0.3);
+  }
+}
+
+@keyframes particleTrail {
+  0% {
+    opacity: 1;
+    transform: scale(0.3) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2) rotate(180deg) translateY(-30px);
+  }
+}
+
+@keyframes particleFade {
+  0% {
+    opacity: 1;
+    transform: scale(0.5) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5) translateY(-20px);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+
 .manrope {
   font-family: "Manrope", sans-serif;
   font-optical-sizing: auto;

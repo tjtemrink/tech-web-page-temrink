@@ -5,6 +5,7 @@ import { Source_Sans_3 } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
+import SimpleBlueCursor from "@/components/SimpleBlueCursor";
 import { siteDetails } from "@/data/siteDetails";
 
 import "./globals.css";
@@ -95,6 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
 
+        <SimpleBlueCursor />
         <Header />
         <main>{children}</main>
         <Footer />

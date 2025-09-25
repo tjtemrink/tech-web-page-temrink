@@ -54,6 +54,17 @@ const Header: React.FC = () => {
   const toggleMenu = () => setIsOpen((v) => !v);
   const closeMenu = () => setIsOpen(false);
 
+  // Check if a nav item is active
+  const isActive = (url: string) => {
+    if (url === '/#hero' && pathname === '/') return true;
+    if (url === '/contact' && pathname === '/contact') return true;
+    if (url === '/pricing' && pathname === '/pricing') return true;
+    if (url === '/ai-solutions' && pathname === '/ai-solutions') return true;
+    if (url === '/process' && pathname === '/process') return true;
+    if (url === '/faqs' && pathname === '/faqs') return true;
+    return false;
+  };
+
   // Smooth-scroll only on "/" and only for '/#...' anchors
   const handleAnchorClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -104,34 +115,41 @@ const Header: React.FC = () => {
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex items-center space-x-6">
-            {navItems.map((item) => (
-              <li key={item.text}>
-                {isExternal(item.url) ? (
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-slate-800 md:text-white hover:text-slate-600 md:hover:text-slate-200 transition-colors"
-                    onClick={closeMenu}
-                  >
-                    {item.text}
-                  </a>
-                ) : (
-                  <Link
-                    href={item.url}
-                    className="text-slate-800 md:text-white hover:text-slate-600 md:hover:text-slate-200 transition-colors"
-                    prefetch={false}
-                    onClick={
-                      item.url.startsWith('/#')
-                        ? (e) => handleAnchorClick(e, item.url)
-                        : () => closeMenu()
-                    }
-                  >
-                    {item.text}
-                  </Link>
-                )}
-              </li>
-            ))}
+            {navItems.map((item) => {
+              const active = isActive(item.url);
+              return (
+                <li key={item.text}>
+                  {isExternal(item.url) ? (
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`text-slate-800 md:text-white hover:text-slate-600 md:hover:text-slate-200 transition-colors ${
+                        active ? 'md:text-[#2A3BCF] md:font-semibold' : ''
+                      }`}
+                      onClick={closeMenu}
+                    >
+                      {item.text}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.url}
+                      className={`text-slate-800 md:text-white hover:text-slate-600 md:hover:text-slate-200 transition-colors ${
+                        active ? 'md:text-[#2A3BCF] md:font-semibold' : ''
+                      }`}
+                      prefetch={false}
+                      onClick={
+                        item.url.startsWith('/#')
+                          ? (e) => handleAnchorClick(e, item.url)
+                          : () => closeMenu()
+                      }
+                    >
+                      {item.text}
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
             <li>
               {/* CTA -> Contact PAGE */}
               <Link

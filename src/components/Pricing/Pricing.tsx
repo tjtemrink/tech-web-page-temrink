@@ -38,13 +38,13 @@ const Pricing: React.FC = () => {
       <div className="mt-8 md:mt-10 rounded-3xl ring-1 ring-border bg-background p-6 md:p-7 shadow-sm">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <div className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+            <div className="text-sm font-semibold uppercase tracking-wide text-slate-400">
               Add-on
             </div>
             <h4 className="mt-1 text-xl font-bold text-foreground">
               Microsoft 365 Copilot — turbocharge everyday work
             </h4>
-            <p className="mt-1 text-sm text-muted-foreground">
+            <p className="mt-1 text-sm text-slate-300 font-medium">
               CAD <span className="font-semibold">$40.70</span> per user / month
               (annual subscription, auto-renews) • plus tax
             </p>
@@ -78,7 +78,7 @@ const Pricing: React.FC = () => {
           </li>
         </ul>
 
-        <p className="mt-4 text-xs text-muted-foreground">
+        <p className="mt-4 text-xs text-slate-400 font-medium">
           *Copilot requires an eligible base license (e.g., Business Standard or Business Premium).
           Temrink can provision licenses, configure security, and train your team.
         </p>

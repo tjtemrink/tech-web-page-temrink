@@ -57,7 +57,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="features" className="py-20 md:py-28 relative overflow-hidden">
+    <section id="features" className="py-20 md:py-28 relative overflow-hidden hover:scale-[1.01] transition-all duration-500">
       {/* background */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-800/50 via-slate-700/50 to-slate-800/50" />
       <Container>
@@ -75,7 +75,7 @@ export default function Services() {
           {services.map((s) => (
             <article
               key={s.key}
-              className="group rounded-2xl border border-slate-600/50 bg-white shadow-lg ring-1 ring-slate-600/30 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-xl"
+              className="group rounded-2xl border border-slate-600/50 bg-white shadow-lg ring-1 ring-slate-600/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:scale-105 hover:ring-[#2A3BCF]/50"
             >
               {/* Edge-to-edge image with rounded top corners (no white space) */}
               <div className="relative overflow-hidden rounded-t-2xl">

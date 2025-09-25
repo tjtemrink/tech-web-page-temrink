@@ -6,6 +6,10 @@ export const menuItems: IMenuItem[] = [
   { text: "Pricing",      url: "/pricing" },
   { text: "AI solutions", url: "/ai-solutions" },
   {
+    text: "Math Quiz Bot (beta)", // Math Quiz Bot
+    url: "https://mqbstore.z13.web.core.windows.net/"
+  },
+  {
     text: "Blog", // Microsite
     url: "https://temrink-inc.dmc-microsite.com/?utm_source=temrink.com&utm_medium=website&utm_campaign=nav"
   },
