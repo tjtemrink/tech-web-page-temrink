@@ -10,6 +10,10 @@ export const menuItems: IMenuItem[] = [
     url: "https://mqbstore.z13.web.core.windows.net/"
   },
   {
+    text: "Legal Knowledge Bank", // Legal Document Analysis
+    url: "https://stphilerdocscan.z9.web.core.windows.net/"
+  },
+  {
     text: "Blog", // Microsite
     url: "https://temrink-inc.dmc-microsite.com/?utm_source=temrink.com&utm_medium=website&utm_campaign=nav"
   },

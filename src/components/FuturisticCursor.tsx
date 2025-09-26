@@ -140,3 +140,4 @@ const FuturisticCursor: React.FC = () => {
 
 export default FuturisticCursor;
 
+
