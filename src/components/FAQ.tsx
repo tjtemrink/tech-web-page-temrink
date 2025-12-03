@@ -7,9 +7,6 @@ import { BiMinus, BiPlus } from "react-icons/bi";
 import SectionTitle from "./SectionTitle";
 import type { IFAQ } from "@/types";
 
-const BRAND_BLUE = "#010775";
-const BRAND_RED = "#DD0000";
-
 const FAQ: React.FC = () => {
   // Temrink-specific FAQs (previous data file removed)
   const faqs: IFAQ[] = [
@@ -39,12 +36,6 @@ const FAQ: React.FC = () => {
         "Email helpdesk, device onboarding standards, patching policies, and monthly optimization reviews. Higher tiers add priority SLAs.",
     },
   ];
-  // Strongly-typed CSS variables (no `any`)
-  const brandVars =
-    {
-      "--brand-blue": BRAND_BLUE,
-      "--brand-red": BRAND_RED,
-    } as React.CSSProperties & Record<"--brand-blue" | "--brand-red", string>;
 
   return (
     <section id="faq" className="py-20 lg:py-28 relative overflow-hidden">

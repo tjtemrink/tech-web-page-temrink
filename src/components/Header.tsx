@@ -10,6 +10,7 @@ import { usePathname } from 'next/navigation';
 import Container from './Container';
 import { siteDetails } from '@/data/siteDetails';
 import { menuItems as baseMenuItems } from '@/data/menuItems';
+import { IMenuItem } from '@/types';
 
 type NavItem = { text: string; url: string };
 
@@ -38,7 +39,7 @@ const Header: React.FC = () => {
 
   // Inject "Home" and normalize
   const navItems: NavItem[] = useMemo(() => {
-    const items = baseMenuItems.map<NavItem>((i: any) => {
+    const items = baseMenuItems.map<NavItem>((i: IMenuItem) => {
       const text = String(i.text ?? '');
       let url = String(i.url ?? '');
 

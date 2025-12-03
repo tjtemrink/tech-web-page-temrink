@@ -17,6 +17,37 @@ interface QuickAction {
   isPrimary?: boolean;
 }
 
+interface RecommendationRule {
+  name: string;
+  then?: {
+    package?: string;
+    price_hint?: string;
+    hourly?: {
+      business_hours: string;
+      after_hours: string;
+    };
+    consult?: {
+      business_hours: string;
+      after_hours: string;
+    };
+    add_ons?: string[];
+  };
+}
+
+interface KnowledgeBase {
+  recommendation_logic?: {
+    rules?: RecommendationRule[];
+  };
+  response_snippets?: {
+    value_prop_short?: string;
+    after_hours_notice?: string;
+    onsite_notice?: string;
+  };
+  call_to_action_templates?: {
+    discovery_call?: string;
+  };
+}
+
 
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +61,7 @@ const Chatbot: React.FC = () => {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [kb, setKb] = useState<any>(null);
+  const [kb, setKb] = useState<KnowledgeBase | null>(null);
   const [isRecommending, setIsRecommending] = useState(false);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -50,7 +81,7 @@ const Chatbot: React.FC = () => {
       try {
         const res = await fetch('/knowledge/temrink-data-bank.yaml', { cache: 'no-cache' });
         const text = await res.text();
-        const data = yaml.load(text);
+        const data = yaml.load(text) as KnowledgeBase;
         setKb(data);
       } catch (e) {
         console.warn('Knowledge base load failed', e);
@@ -176,7 +207,7 @@ const Chatbot: React.FC = () => {
     // YAML-driven heuristics
     const rules = kb?.recommendation_logic?.rules || [];
 
-    const select = (name: string) => rules.find((r: any) => r.name === name);
+    const select = (name: string): RecommendationRule | undefined => rules.find((r: RecommendationRule) => r.name === name);
     const adv = select('require_advanced_for_biz_premium');
     const small = select('small_team_starter');
     const mixed = select('mixed_license_flex');
@@ -227,21 +258,21 @@ const Chatbot: React.FC = () => {
     ].filter(Boolean).join('\n');
   };
 
-  const formatPackage = (rule: any): string => {
+  const formatPackage = (rule: RecommendationRule | undefined): string => {
     if (!rule?.then?.package) return '';
     const name = rule.then.package;
     const price = rule.then.price_hint ? ` — ${rule.then.price_hint}` : '';
     return `• ${name}${price}`;
   };
 
-  const formatHourly = (rule: any): string => {
+  const formatHourly = (rule: RecommendationRule | undefined): string => {
     if (!rule?.then?.hourly) return '';
     const bh = rule.then.hourly.business_hours;
     const ah = rule.then.hourly.after_hours;
     return `• Hourly support: ${bh}; after-hours ${ah}`;
   };
 
-  const formatConsult = (rule: any): string => {
+  const formatConsult = (rule: RecommendationRule | undefined): string => {
     if (!rule?.then?.consult) return '';
     const bh = rule.then.consult.business_hours;
     const ah = rule.then.consult.after_hours;
