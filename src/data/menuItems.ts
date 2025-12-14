@@ -3,16 +3,7 @@ import { IMenuItem } from "@/types";
 export const menuItems: IMenuItem[] = [
   { text: "Features",     url: "#features" },
   { text: "Process",      url: "/process" },
-  { text: "Pricing",      url: "/pricing" },
   { text: "AI solutions", url: "/ai-solutions" },
-  {
-    text: "Math Quiz Bot (beta)", // Math Quiz Bot
-    url: "https://mqbstore.z13.web.core.windows.net/"
-  },
-  {
-    text: "Legal Knowledge Bank", // Legal Document Analysis
-    url: "https://stphilerdocscan.z9.web.core.windows.net/"
-  },
   {
     text: "Blog", // Microsite
     url: "https://temrink-inc.dmc-microsite.com/?utm_source=temrink.com&utm_medium=website&utm_campaign=nav"
