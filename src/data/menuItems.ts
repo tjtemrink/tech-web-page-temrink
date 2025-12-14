@@ -8,5 +8,6 @@ export const menuItems: IMenuItem[] = [
     text: "Blog", // Microsite
     url: "https://temrink-inc.dmc-microsite.com/?utm_source=temrink.com&utm_medium=website&utm_campaign=nav"
   },
-  { text: "Contact",      url: "/contact" }
+  { text: "Contact & Get Demo",      url: "/contact" }
 ];
+
