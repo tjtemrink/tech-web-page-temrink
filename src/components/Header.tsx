@@ -43,7 +43,7 @@ const Header: React.FC = () => {
       const text = String(i.text ?? '');
       let url = String(i.url ?? '');
 
-      if (text.toLowerCase() === 'contact') url = '/contact';
+      if (text.toLowerCase().includes('contact')) url = '/contact';
       else url = normalizeUrl(url);
 
       return { text, url };
@@ -242,3 +242,4 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
