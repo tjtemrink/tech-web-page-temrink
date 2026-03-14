@@ -153,9 +153,10 @@ p { margin-bottom: 1rem; }
 }
 
 .logo img {
-  height: 40px;
-  width: auto;
-  max-height: 40px;
+  height: 40px !important;
+  width: auto !important;
+  max-height: 40px !important;
+  max-width: 140px !important;
   object-fit: contain;
 }
 
@@ -205,13 +206,21 @@ p { margin-bottom: 1rem; }
 }
 
 .nav-cta {
-  margin-left: 8px;
-  white-space: nowrap;
-  padding: 10px 24px;
+  margin-left: 8px !important;
+  white-space: nowrap !important;
+  padding: 10px 24px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 120px !important;
+  border-radius: var(--radius) !important;
+  background: var(--accent) !important;
+  color: var(--white) !important;
+  font-weight: 600 !important;
 }
 
 .nav-links a.nav-cta::after {
-  display: none;
+  display: none !important;
 }
 
 .hamburger {
