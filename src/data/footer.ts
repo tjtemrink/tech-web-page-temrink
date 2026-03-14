@@ -7,10 +7,10 @@ export const footerDetails: {
     telephone: string;
     socials: ISocials;
 } = {
-    subheading: "Empowering businesses with cutting-edge financial technology solutions.",
+    subheading: "Your IT team, without the overhead. Managed IT, AI & automation for growing businesses.",
     quickLinks: [
         {
-            text: "Features",
+            text: "Services",
             url: "#features"
         },
         {
@@ -30,16 +30,15 @@ export const footerDetails: {
             url: "/contact"
         }
     ],
-    email: 'address@yoursite.com',
-    telephone: '+1 (123) 456-7890',
+    email: 'consulting@temrink.com',
+    telephone: '+1 289-327-2015',
     socials: {
         // github: 'https://github.com',
         // x: 'https://twitter.com/x',
-        twitter: 'https://twitter.com/Twitter',
-        facebook: 'https://facebook.com',
+        x: 'https://x.com/Temrinkinc',
         // youtube: 'https://youtube.com',
-        linkedin: 'https://www.linkedin.com',
+        linkedin: 'https://www.linkedin.com/company/temrinkinc/',
         // threads: 'https://www.threads.net',
-        instagram: 'https://www.instagram.com',
+        instagram: 'https://www.instagram.com/temrink.inc',
     }
 }
