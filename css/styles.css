@@ -149,11 +149,14 @@ p { margin-bottom: 1rem; }
 .logo {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .logo img {
   height: 40px;
   width: auto;
+  max-height: 40px;
+  object-fit: contain;
 }
 
 .logo-text {
@@ -203,6 +206,12 @@ p { margin-bottom: 1rem; }
 
 .nav-cta {
   margin-left: 8px;
+  white-space: nowrap;
+  padding: 10px 24px;
+}
+
+.nav-links a.nav-cta::after {
+  display: none;
 }
 
 .hamburger {
