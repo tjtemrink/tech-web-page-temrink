@@ -3,90 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Temrink for a free IT assessment. Get in touch about managed IT services, licensing, devices, and AI automation for your business.">
-  <title>Contact | Temrink Book a Free IT Assessment</title>
+  <title>Contact Temrink | Book a Free IT Assessment</title>
+  <meta name="description" content="Contact Temrink for a free IT assessment. Get in touch about managed IT services, licensing, cloud, AI automation, and 24/7 support for your business.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="images/temrink-logo.png" type="image/png">
 </head>
 <body>
-
-  <!-- Header -->
   <header class="header">
     <nav class="nav container">
-      <a href="index.html" class="logo">
-        <img src="images/temrink-logo.png" alt="Temrink" height="40" width="136">
-      </a>
+      <a href="index.html" class="nav-logo"><img src="images/temrink-logo.png" alt="Temrink"></a>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
         <a href="about.html">About</a>
         <a href="contact.html" class="active">Contact</a>
-        <a href="contact.html" class="btn btn-primary nav-cta">Book a Call</a>
+        <a href="contact.html" class="nav-cta">Get a Quote</a>
       </div>
-      <button class="hamburger" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </nav>
-    <div class="mobile-nav">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="contact.html" class="btn btn-primary">Book a Call</a>
-    </div>
   </header>
 
-  <!-- Page Hero -->
   <section class="page-hero">
-    <div class="container">
-      <span class="label">Get in Touch</span>
+    <div class="container text-center">
+      <span class="section-label">Get in Touch</span>
       <h1>Let's Talk About Your IT</h1>
-      <p>Book a free assessment or send us a message. We will reply within one business day.</p>
+      <p class="section-subtitle mx-auto">Book a free assessment or send us a message. We reply within one business day.</p>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section class="section">
+  <section>
     <div class="container">
       <div class="contact-grid">
-        <div class="contact-info">
+        <div class="contact-info fade-up">
           <h2>We Would Love to Hear From You</h2>
-          <p>Whether you need a full IT overhaul or just want to optimize your licenses, we are here to help. No pressure, no jargon. Just a straightforward conversation about what your business needs.</p>
+          <p>Whether you need a full IT overhaul, want to optimize your licensing, or are looking to adopt AI tools, we are here to help. No pressure, no jargon.</p>
 
           <div class="contact-methods">
             <div class="contact-method">
-              <div class="icon">📧</div>
+              <div class="contact-icon"><span class="icon-mail"></span></div>
               <div>
                 <h4>Email</h4>
-                <p><a href="mailto:consulting@temrink.com">consulting@temrink.com</a></p>
+                <p><a href="mailto:assistant@temrink.com">assistant@temrink.com</a></p>
               </div>
             </div>
             <div class="contact-method">
-              <div class="icon">📞</div>
+              <div class="contact-icon"><span class="icon-phone"></span></div>
               <div>
                 <h4>Phone</h4>
                 <p><a href="tel:+12893272015">+1 289 327 2015</a></p>
               </div>
             </div>
             <div class="contact-method">
-              <div class="icon">📍</div>
+              <div class="contact-icon"><span class="icon-pin"></span></div>
               <div>
-                <h4>Vancouver Office</h4>
-                <p>2609 East 49 Avenue, Unit 210<br>Vancouver, BC</p>
+                <h4>Service Area</h4>
+                <p>Canada Wide (Remote &amp; On Site)</p>
               </div>
             </div>
           </div>
 
-          <div class="social-links">
-            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-            <a href="#" class="social-link" aria-label="Instagram">ig</a>
-            <a href="#" class="social-link" aria-label="X / Twitter">𝕏</a>
+          <div class="contact-highlights">
+            <div class="contact-highlight">
+              <strong>Free IT Assessment</strong>
+              <p>We audit your current setup and show you where you can save.</p>
+            </div>
+            <div class="contact-highlight">
+              <strong>No Long Term Contracts</strong>
+              <p>Flexible monthly plans. We earn your business every month.</p>
+            </div>
+            <div class="contact-highlight">
+              <strong>Fast Onboarding</strong>
+              <p>Most businesses are fully transitioned within 2 to 4 weeks.</p>
+            </div>
           </div>
         </div>
 
-        <form class="contact-form" id="contact-form">
+        <form class="contact-form fade-up" id="contact-form" action="mailto:assistant@temrink.com" method="POST" enctype="text/plain">
           <h3>Send Us a Message</h3>
           <div class="form-row">
             <div class="form-group">
@@ -124,65 +119,70 @@
             </select>
           </div>
           <div class="form-group">
+            <label for="service">What Are You Interested In?</label>
+            <select id="service" name="service">
+              <option value="">Select a service</option>
+              <option value="full-managed">Full Managed IT</option>
+              <option value="licensing">Licensing &amp; Cloud</option>
+              <option value="devices">Device Management</option>
+              <option value="ai">AI &amp; Automation</option>
+              <option value="helpdesk">24/7 Helpdesk</option>
+              <option value="migration">Cloud Migration</option>
+              <option value="other">Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="form-group">
             <label for="message">How Can We Help? *</label>
             <textarea id="message" name="message" placeholder="Tell us about your current IT setup and what you are looking for..." required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Send Message</button>
-          <p style="font-size: 0.8rem; color: var(--gray-500); margin-top: 12px; margin-bottom: 0;">We will reply within one business day with personalized recommendations.</p>
+          <button type="submit" class="btn btn-primary" style="width:100%">Send Message</button>
+          <p style="font-size: 0.8rem; color: #6B7280; margin-top: 12px; margin-bottom: 0;">Form submissions are sent to assistant@temrink.com. We reply within one business day with personalized recommendations.</p>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo">
-            <img src="images/temrink-logo.png" alt="Temrink" height="36" width="122">
-          </a>
-          <p style="margin-top: 16px;">Your IT team, without the overhead. Managed IT, AI and automation for growing businesses across Canada.</p>
-          <div class="social-links" style="margin-top: 20px;">
-            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-            <a href="#" class="social-link" aria-label="Instagram">ig</a>
-            <a href="#" class="social-link" aria-label="X / Twitter">𝕏</a>
-          </div>
+          <img src="images/temrink-logo.png" alt="Temrink">
+          <p>Enterprise IT services for small and medium businesses across Canada. We become your IT department so you can focus on what you do best.</p>
         </div>
-        <div>
+        <div class="footer-col">
           <h4>Services</h4>
           <ul>
-            <li><a href="services.html#licensing">Licensing Management</a></li>
-            <li><a href="services.html#devices">Device as a Service</a></li>
-            <li><a href="services.html#ai">AI and Automation</a></li>
-            <li><a href="services.html#helpdesk">IT Helpdesk</a></li>
+            <li><a href="services.html#licensing">Licensing &amp; Cloud</a></li>
+            <li><a href="services.html#cloud">Infrastructure</a></li>
+            <li><a href="services.html#devices">Managed Devices</a></li>
+            <li><a href="services.html#ai">AI &amp; Automation</a></li>
+            <li><a href="services.html#helpdesk">Helpdesk Support</a></li>
+            <li><a href="services.html#migration">Migration</a></li>
           </ul>
         </div>
-        <div>
+        <div class="footer-col">
           <h4>Company</h4>
           <ul>
             <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html#values">Our Values</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-        <div>
+        <div class="footer-col">
           <h4>Contact</h4>
           <ul>
-            <li><a href="mailto:consulting@temrink.com">consulting@temrink.com</a></li>
+            <li><a href="mailto:assistant@temrink.com">assistant@temrink.com</a></li>
             <li><a href="tel:+12893272015">+1 289 327 2015</a></li>
-            <li>Vancouver, BC</li>
+            <li>Canada Wide Service</li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Temrink Inc. All rights reserved.</p>
-        <p>
-          <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Service</a>
-        </p>
+        <p>&copy; 2026 Temrink. All rights reserved.</p>
+        <p>Managed IT for Canadian Businesses</p>
       </div>
     </div>
   </footer>
-
   <script src="js/main.js"></script>
 </body>
 </html>

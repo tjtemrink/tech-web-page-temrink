@@ -3,277 +3,394 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Temrink provides managed IT support, Microsoft 365 management, AI automation, and device leasing for small and medium businesses across Canada.">
-  <meta name="keywords" content="managed IT services, SMB IT support, Microsoft 365, AI automation, Copilot, device leasing, IT helpdesk, Vaughan, Toronto, Vancouver">
-  <title>Temrink | Your IT Team, Without the Overhead</title>
+  <title>Temrink | We Become Your IT Department</title>
+  <meta name="description" content="Enterprise IT services for small and medium businesses. Replace your $100K in house IT with Temrink managed services starting at $25,000 per year. Microsoft 365, cloud, AI, and 24/7 support.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="images/temrink-logo.png" type="image/png">
 </head>
 <body>
 
   <!-- Header -->
   <header class="header">
     <nav class="nav container">
-      <a href="index.html" class="logo">
-        <img src="images/temrink-logo.png" alt="Temrink" height="40" width="136">
+      <a href="index.html" class="nav-logo">
+        <img src="images/temrink-logo.png" alt="Temrink">
       </a>
       <div class="nav-links">
         <a href="index.html" class="active">Home</a>
         <a href="services.html">Services</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="contact.html" class="btn btn-primary nav-cta">Book a Call</a>
+        <a href="contact.html" class="nav-cta">Get a Quote</a>
       </div>
-      <button class="hamburger" aria-label="Toggle navigation">
+      <button class="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
     </nav>
-    <div class="mobile-nav">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="contact.html" class="btn btn-primary">Book a Call</a>
-    </div>
   </header>
 
   <!-- Hero -->
   <section class="hero">
+    <canvas id="hero-network" class="hero-network-canvas"></canvas>
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge">Managed IT for Growing Businesses</div>
-        <h1>We Handle Your IT.<br><span class="highlight">You Grow Your Business.</span></h1>
-        <p>From licensing and devices to helpdesk and AI automation, we take care of your entire IT environment so you can focus on what matters most.</p>
-        <div class="hero-buttons">
-          <a href="contact.html" class="btn btn-primary">Book a Free IT Assessment</a>
-          <a href="services.html" class="btn btn-outline">Our Services</a>
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Managed IT for Canadian SMBs
+          </div>
+          <h1>We Become Your<br><span>IT Department</span></h1>
+          <p class="hero-text">Enterprise grade IT without the enterprise cost. Replace the $100K in house IT hire with a dedicated managed service that covers licensing, cloud, security, AI, and 24/7 support. All starting at a fraction of the price.</p>
+          <div class="hero-buttons">
+            <a href="contact.html" class="btn btn-primary btn-arrow">Get Started</a>
+            <a href="services.html" class="btn btn-secondary">Explore Services</a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <div class="hero-stat-value">50+</div>
+              <div class="hero-stat-label">Licensing Products</div>
+            </div>
+            <div>
+              <div class="hero-stat-value">24/7</div>
+              <div class="hero-stat-label">IT Support</div>
+            </div>
+            <div>
+              <div class="hero-stat-value">Canada</div>
+              <div class="hero-stat-label">Coast to Coast</div>
+            </div>
+          </div>
         </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <h3>4</h3>
-            <p>Core Services</p>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="hero-card-header">
+              <div class="hero-card-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <div class="hero-card-title">Your IT Stack</div>
+                <div class="hero-card-subtitle">Fully managed by Temrink</div>
+              </div>
+            </div>
+            <div class="hero-card-items">
+              <div class="hero-card-item">
+                <div class="hero-card-check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#00c864" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="hero-card-item-text">Microsoft 365 Licensing</span>
+                <span class="hero-card-item-tag">Active</span>
+              </div>
+              <div class="hero-card-item">
+                <div class="hero-card-check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#00c864" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="hero-card-item-text">Cloud Infrastructure</span>
+                <span class="hero-card-item-tag">Active</span>
+              </div>
+              <div class="hero-card-item">
+                <div class="hero-card-check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#00c864" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="hero-card-item-text">AI &amp; Automation</span>
+                <span class="hero-card-item-tag">Active</span>
+              </div>
+              <div class="hero-card-item">
+                <div class="hero-card-check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#00c864" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="hero-card-item-text">24/7 Helpdesk</span>
+                <span class="hero-card-item-tag">Active</span>
+              </div>
+            </div>
           </div>
-          <div class="stat">
-            <h3>Canada</h3>
-            <p>Offices Across Canada</p>
-          </div>
-          <div class="stat">
-            <h3>24/7</h3>
-            <p>Monitoring</p>
-          </div>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-graphic">
-          <img src="images/hero-mockup.webp" alt="Temrink IT Solutions Dashboard">
         </div>
       </div>
     </div>
   </section>
 
   <!-- Services Overview -->
-  <section class="section">
+  <section id="services" class="bg-light">
     <div class="container">
-      <div class="section-header">
-        <span class="label">What We Do</span>
-        <h2>Four Services. One IT Partner.</h2>
-        <p>Everything your business needs to run smoothly, managed by a team that understands small and medium businesses.</p>
+      <div class="text-center">
+        <span class="section-label">What We Do</span>
+        <h2 class="section-title">Complete IT Services Under One Roof</h2>
+        <p class="section-subtitle mx-auto">From licensing and cloud to AI automation and 24/7 support, we handle every aspect of your technology so you can focus on your business.</p>
       </div>
       <div class="services-grid">
-        <div class="service-card">
-          <img src="images/licensing.webp" alt="Software licensing management" class="service-img">
-          <div class="service-icon licensing">📋</div>
-          <h3>Licensing Management</h3>
-          <p class="pain-point">"We are overpaying for licenses we do not use."</p>
-          <p>We manage your Microsoft 365 or Google Workspace licenses, optimize costs, and handle consolidated billing so you never overpay again.</p>
-          <ul class="features">
-            <li>Microsoft 365 and Google Workspace</li>
-            <li>License optimization and cost savings</li>
-            <li>Consolidated billing</li>
-            <li>Security best practices</li>
-          </ul>
+
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Enterprise Licensing &amp; Cloud</h3>
+          <p>Microsoft 365, Google Workspace, Dynamics 365, Power Platform, and 50+ software subscriptions managed and optimized for your business.</p>
+          <a href="services.html#licensing" class="service-card-link">Learn more</a>
         </div>
-        <div class="service-card">
-          <img src="images/daas.webp" alt="Device management and provisioning" class="service-img">
-          <div class="service-icon device">💻</div>
-          <h3>Device as a Service</h3>
-          <p class="pain-point">"Setting up new laptops takes forever."</p>
-          <p>We standardize your fleet with zero touch provisioning. New hire? Their device arrives ready to go on day one.</p>
-          <ul class="features">
-            <li>Windows and Mac standardized builds</li>
-            <li>Zero touch deployment</li>
-            <li>Full lifecycle management</li>
-            <li>Hardware refresh planning</li>
-          </ul>
+
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+          </div>
+          <h3>Cloud Infrastructure &amp; Hosting</h3>
+          <p>Azure cloud, VMware, backup and disaster recovery, hosted Exchange, VoIP/SIP, and full cloud migration services.</p>
+          <a href="services.html#cloud" class="service-card-link">Learn more</a>
         </div>
-        <div class="service-card">
-          <img src="images/ai.webp" alt="AI and automation solutions" class="service-img">
-          <div class="service-icon ai">🤖</div>
-          <h3>AI and Automation</h3>
-          <p class="pain-point">"We know AI could help, but where do we start?"</p>
-          <p>We deploy Microsoft Copilot and build custom automations that save your team hours every week.</p>
-          <ul class="features">
-            <li>Microsoft Copilot rollout</li>
-            <li>Power Automate workflows</li>
-            <li>Process automation</li>
-            <li>AI adoption training</li>
-          </ul>
+
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+          </div>
+          <h3>Managed Devices as a Service</h3>
+          <p>Zero touch provisioning, Intune device management, full lifecycle management, and hardware refresh planning for Windows and Mac.</p>
+          <a href="services.html#devices" class="service-card-link">Learn more</a>
         </div>
-        <div class="service-card">
-          <img src="images/helpdesk.webp" alt="IT helpdesk support team" class="service-img">
-          <div class="service-icon helpdesk">🎧</div>
-          <h3>IT Helpdesk Support</h3>
-          <p class="pain-point">"Our team wastes hours on IT issues."</p>
-          <p>Responsive, human support with clear SLAs. We handle incidents, monitoring, and proactive maintenance so your team stays productive.</p>
-          <ul class="features">
-            <li>Responsive support with SLAs</li>
-            <li>Proactive monitoring</li>
-            <li>Incident management</li>
-            <li>Onboarding and offboarding</li>
-          </ul>
+
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>AI &amp; Automation</h3>
+          <p>Microsoft Copilot rollout, custom AI solutions, Power Automate workflows, and process automation to help SMBs adopt AI and reduce manual work.</p>
+          <a href="services.html#ai" class="service-card-link">Learn more</a>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>24/7 IT Helpdesk Support</h3>
+          <p>Tiered support packages with proactive monitoring, incident management, and seamless user onboarding and offboarding.</p>
+          <a href="services.html#helpdesk" class="service-card-link">Learn more</a>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+          </div>
+          <h3>Partner &amp; Migration Services</h3>
+          <p>Partner valet services, SIP trunk migration, cloud migration, and infrastructure migration with minimal disruption to your business.</p>
+          <a href="services.html#migration" class="service-card-link">Learn more</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Temrink -->
+  <section id="why">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-content fade-up">
+          <span class="section-label">Why Temrink</span>
+          <h2>Enterprise IT Without the Enterprise Cost</h2>
+          <p>Most small businesses face a tough choice: hire an expensive in house IT person or scramble with break fix support. Temrink gives you a third option. You get a complete IT department at a predictable monthly cost.</p>
+          <div class="why-items">
+            <div class="why-item">
+              <div class="why-item-number">01</div>
+              <div>
+                <h4>Save $50,000 to $75,000 Per Year</h4>
+                <p>Replace a six figure IT salary with comprehensive managed services that actually cover more ground.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-item-number">02</div>
+              <div>
+                <h4>Beyond Just Microsoft</h4>
+                <p>Google Workspace, Dynamics 365, Power Platform, VoIP, Azure, and 50+ licensing products all under one roof.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-item-number">03</div>
+              <div>
+                <h4>AI Ready Infrastructure</h4>
+                <p>We help you adopt Copilot, automate workflows, and leverage AI so your team does more with less.</p>
+              </div>
+            </div>
+            <div class="why-item">
+              <div class="why-item-number">04</div>
+              <div>
+                <h4>24/7 Canadian Support</h4>
+                <p>Real people, real support, around the clock. Proactive monitoring means we fix problems before you notice them.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="why-visual fade-up">
+          <div class="cost-comparison">
+            <h3>Annual IT Cost Comparison</h3>
+            <div class="cost-bars">
+              <div class="cost-bar-group">
+                <label>In House IT Employee</label>
+                <div class="cost-bar-track">
+                  <div class="cost-bar-fill expensive" style="width:100%">$100,000+/yr</div>
+                </div>
+              </div>
+              <div class="cost-bar-group">
+                <label>Temrink Managed IT</label>
+                <div class="cost-bar-track">
+                  <div class="cost-bar-fill affordable" style="width:40%">$25,000 to $50,000/yr</div>
+                </div>
+              </div>
+            </div>
+            <div class="cost-savings">
+              Save up to <strong>$75,000/year</strong> with broader coverage
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- How It Works -->
-  <section class="section section-blue">
+  <section class="bg-light">
     <div class="container">
-      <div class="section-header">
-        <span class="label">Our Process</span>
-        <h2>Getting Started Is Simple</h2>
-        <p>Three steps to stress free IT. No long contracts, no complicated onboarding.</p>
+      <div class="text-center">
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title">Get Started in 4 Simple Steps</h2>
+        <p class="section-subtitle mx-auto">We make onboarding painless. Most businesses are fully transitioned within 2 to 4 weeks.</p>
       </div>
-      <div class="steps">
-        <div class="step">
+      <div class="steps-grid">
+        <div class="step-card fade-up">
           <div class="step-number">1</div>
-          <h3>Book a Call</h3>
-          <p>We learn about your business, your team size, and your current IT setup. No pressure, no jargon.</p>
+          <h3>Discovery Call</h3>
+          <p>We learn about your business, current IT setup, pain points, and goals. No sales pressure, just a real conversation.</p>
         </div>
-        <div class="step">
+        <div class="step-card fade-up">
           <div class="step-number">2</div>
-          <h3>We Assess and Plan</h3>
-          <p>We audit your licenses, devices, and workflows then build a plan tailored to your needs and budget.</p>
+          <h3>IT Assessment</h3>
+          <p>Our team audits your infrastructure, licensing, security posture, and identifies cost savings and quick wins.</p>
         </div>
-        <div class="step">
+        <div class="step-card fade-up">
           <div class="step-number">3</div>
-          <h3>We Handle Everything</h3>
-          <p>From day one, we manage your IT. You focus on running your business while we keep things running smoothly.</p>
+          <h3>Custom Plan</h3>
+          <p>We build a tailored service package that fits your budget and covers all your IT needs from day one.</p>
+        </div>
+        <div class="step-card fade-up">
+          <div class="step-number">4</div>
+          <h3>Seamless Transition</h3>
+          <p>We handle the migration, onboard your team, and become your IT department with zero downtime.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Why Temrink -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="label">Why Choose Us</span>
-        <h2>Built for Businesses Like Yours</h2>
-        <p>We are not a giant faceless IT company. We are a team that specializes in helping small and medium businesses get enterprise level IT without the enterprise price tag.</p>
-      </div>
-      <div class="benefits-grid">
-        <div class="benefit">
-          <div class="benefit-icon">💰</div>
-          <h4>Cost Savings</h4>
-          <p>We optimize your licenses and consolidate vendors to cut IT costs, typically saving businesses 20 to 30 percent.</p>
-        </div>
-        <div class="benefit">
-          <div class="benefit-icon">🚀</div>
-          <h4>Fast Response</h4>
-          <p>Clear SLAs with real humans. No ticket queues that take days. We respond quickly because your time matters.</p>
-        </div>
-        <div class="benefit">
-          <div class="benefit-icon">🔒</div>
-          <h4>Security First</h4>
-          <p>Every license, device, and workflow is configured with security best practices built in from the start.</p>
-        </div>
-        <div class="benefit">
-          <div class="benefit-icon">📈</div>
-          <h4>Scale With You</h4>
-          <p>Adding 5 people or 50? Our services flex with your team. No renegotiating, no surprise costs.</p>
-        </div>
-        <div class="benefit">
-          <div class="benefit-icon">🤝</div>
-          <h4>Local and Personal</h4>
-          <p>Based in Canada with an office in Vancouver. We are your neighbours, not a call center overseas.</p>
-        </div>
-        <div class="benefit">
-          <div class="benefit-icon">🧠</div>
-          <h4>AI Forward</h4>
-          <p>We do not just manage IT. We help you use AI to work smarter with Copilot, automation, and more.</p>
-        </div>
+  <!-- Industries -->
+  <section>
+    <div class="container text-center">
+      <span class="section-label">Industries We Serve</span>
+      <h2 class="section-title">Trusted by Businesses Across Canada</h2>
+      <p class="section-subtitle mx-auto">From healthcare to construction, we help small and medium businesses in every industry get enterprise grade IT.</p>
+      <div class="industries-flex fade-up">
+        <div class="industry-chip"><span class="industry-chip-dot"></span> Dental Clinics</div>
+        <div class="industry-chip"><span class="industry-chip-dot"></span> Law Firms</div>
+        <div class="industry-chip"><span class="industry-chip-dot"></span> Accounting Firms</div>
+        <div class="industry-chip"><span class="industry-chip-dot"></span> Construction Companies</div>
+        <div class="industry-chip"><span class="industry-chip-dot"></span> Healthcare Providers</div>
+        <div class="industry-chip"><span class="industry-chip-dot"></span> Retail &amp; eCommerce</div>
+        <div class="industry-chip"><span class="industry-chip-dot"></span> Real Estate</div>
+        <div class="industry-chip"><span class="industry-chip-dot"></span> Financial Services</div>
+        <div class="industry-chip"><span class="industry-chip-dot"></span> Manufacturing</div>
+        <div class="industry-chip"><span class="industry-chip-dot"></span> Nonprofits</div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Banner -->
-  <section class="section section-blue cta-banner">
-    <div class="container">
-      <h2>Ready to Simplify Your IT?</h2>
-      <p>Book a free IT assessment. We will show you where you are overspending and how we can help.</p>
-      <div class="cta-buttons">
-        <a href="contact.html" class="btn btn-white">Book a Free Assessment</a>
-        <a href="services.html" class="btn btn-outline" style="border-color: white; color: white;">Learn More</a>
+  <!-- Partners -->
+  <section class="bg-light">
+    <div class="container text-center">
+      <span class="section-label">Our Partners</span>
+      <h2 class="section-title">Certified &amp; Authorized Partner</h2>
+      <p class="section-subtitle mx-auto">We are an authorized partner for the world's leading technology platforms.</p>
+      <div class="partners-row fade-up">
+        <img src="images/partner-microsoft.png" alt="Microsoft Partner" class="partner-logo">
+        <img src="images/partner-google.png" alt="Google Partner" class="partner-logo">
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="section">
+  <section id="faq">
     <div class="container">
-      <div class="section-header">
-        <span class="label">FAQ</span>
-        <h2>Common Questions</h2>
+      <div class="text-center">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
       </div>
       <div class="faq-list">
+
         <div class="faq-item">
           <button class="faq-question">
-            What size companies do you work with?
-            <span class="faq-toggle">+</span>
+            <span>How much does Temrink's managed IT service cost?</span>
+            <span class="faq-toggle"><span class="faq-toggle-line"></span></span>
           </button>
           <div class="faq-answer">
-            <p>We specialize in small and medium businesses, typically teams of 5 to 200 people. Whether you are a growing startup or an established company, our services scale to fit your needs.</p>
+            <p>Our managed IT packages typically range from $25,000 to $50,000 per year depending on the size of your team, the services you need, and your licensing requirements. That is a fraction of the $100K+ cost of a full time in house IT employee. You get broader coverage, 24/7 support, and specialized expertise.</p>
           </div>
         </div>
+
         <div class="faq-item">
           <button class="faq-question">
-            We already have an IT person. Can you still help?
-            <span class="faq-toggle">+</span>
+            <span>Do you only work with Microsoft products?</span>
+            <span class="faq-toggle"><span class="faq-toggle-line"></span></span>
           </button>
           <div class="faq-answer">
-            <p>Absolutely. Many of our clients have in house IT staff. We complement their work by handling licensing, device management, and AI automation, freeing them up for strategic projects.</p>
+            <p>Not at all. While we are a Microsoft authorized partner, we also manage Google Workspace, various SaaS platforms, VoIP/SIP systems, and 50+ software licensing products. We are platform neutral and recommend whatever works best for your business.</p>
           </div>
         </div>
+
         <div class="faq-item">
           <button class="faq-question">
-            Do you support Mac and Windows?
-            <span class="faq-toggle">+</span>
+            <span>How long does the transition to Temrink take?</span>
+            <span class="faq-toggle"><span class="faq-toggle-line"></span></span>
           </button>
           <div class="faq-answer">
-            <p>Yes. Our Device as a Service covers both Windows and Mac environments. We create standardized builds for both platforms and manage the full lifecycle.</p>
+            <p>Most businesses are fully transitioned within 2 to 4 weeks. We handle everything from migrating your cloud services to onboarding your users, with zero downtime as the goal. Our proven process ensures a smooth handoff with no disruption to daily operations.</p>
           </div>
         </div>
+
         <div class="faq-item">
           <button class="faq-question">
-            How fast is your support response time?
-            <span class="faq-toggle">+</span>
+            <span>Can you help us adopt AI tools like Copilot?</span>
+            <span class="faq-toggle"><span class="faq-toggle-line"></span></span>
           </button>
           <div class="faq-answer">
-            <p>We have clear SLAs for every engagement. Critical issues get immediate attention. For standard requests, we typically respond within 1 to 2 hours during business hours.</p>
+            <p>Absolutely. AI adoption is one of our fastest growing service areas. We help businesses roll out Microsoft Copilot, build custom Power Automate workflows, and implement AI powered process automation. We make sure your team actually uses these tools effectively, not just has access to them.</p>
           </div>
         </div>
+
         <div class="faq-item">
           <button class="faq-question">
-            Are there long term contracts?
-            <span class="faq-toggle">+</span>
+            <span>Do you serve businesses outside of major cities?</span>
+            <span class="faq-toggle"><span class="faq-toggle-line"></span></span>
           </button>
           <div class="faq-answer">
-            <p>We offer flexible monthly plans. No long term lock ins. We earn your business every month by delivering great service.</p>
+            <p>Yes. Because our services are cloud based and remotely managed, we serve businesses across all of Canada, from downtown Toronto to rural Alberta. Our 24/7 support and remote device management mean location is never a barrier to great IT service.</p>
           </div>
         </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What happens if something breaks at 2 AM?</span>
+            <span class="faq-toggle"><span class="faq-toggle-line"></span></span>
+          </button>
+          <div class="faq-answer">
+            <p>Our 24/7 helpdesk is staffed around the clock. Critical issues are triaged immediately. We also use proactive monitoring to catch and resolve many problems before they affect your business, so most issues are fixed before you even notice them.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Replace Your IT Headaches?</h2>
+      <p>Book a free discovery call and find out how much you could save with Temrink as your IT department.</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn btn-primary btn-arrow">Book a Free Consultation</a>
+        <a href="services.html" class="btn btn-secondary">View All Services</a>
       </div>
     </div>
   </section>
@@ -283,46 +400,41 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo">
-            <img src="images/temrink-logo.png" alt="Temrink" height="36" width="122">
-          </a>
-          <p style="margin-top: 16px;">Your IT team, without the overhead. Managed IT, AI and automation for growing businesses across Canada.</p>
-          <div class="social-links" style="margin-top: 20px;">
-            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-            <a href="#" class="social-link" aria-label="Instagram">ig</a>
-            <a href="#" class="social-link" aria-label="X / Twitter">𝕏</a>
-          </div>
+          <img src="images/temrink-logo.png" alt="Temrink">
+          <p>Enterprise IT services for small and medium businesses across Canada. We become your IT department so you can focus on what you do best.</p>
         </div>
-        <div>
+        <div class="footer-col">
           <h4>Services</h4>
           <ul>
-            <li><a href="services.html#licensing">Licensing Management</a></li>
-            <li><a href="services.html#devices">Device as a Service</a></li>
-            <li><a href="services.html#ai">AI and Automation</a></li>
-            <li><a href="services.html#helpdesk">IT Helpdesk</a></li>
+            <li><a href="services.html#licensing">Licensing &amp; Cloud</a></li>
+            <li><a href="services.html#cloud">Infrastructure</a></li>
+            <li><a href="services.html#devices">Managed Devices</a></li>
+            <li><a href="services.html#ai">AI &amp; Automation</a></li>
+            <li><a href="services.html#helpdesk">Helpdesk Support</a></li>
+            <li><a href="services.html#migration">Migration</a></li>
           </ul>
         </div>
-        <div>
+        <div class="footer-col">
           <h4>Company</h4>
           <ul>
             <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html#values">Our Values</a></li>
+            <li><a href="about.html#partners">Partners</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-        <div>
+        <div class="footer-col">
           <h4>Contact</h4>
           <ul>
-            <li><a href="mailto:consulting@temrink.com">consulting@temrink.com</a></li>
+            <li><a href="mailto:assistant@temrink.com">assistant@temrink.com</a></li>
             <li><a href="tel:+12893272015">+1 289 327 2015</a></li>
-            <li>Vancouver, BC</li>
+            <li>Canada Wide Service</li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Temrink Inc. All rights reserved.</p>
-        <p>
-          <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Service</a>
-        </p>
+        <p>&copy; 2026 Temrink. All rights reserved.</p>
+        <p>Managed IT for Canadian Businesses</p>
       </div>
     </div>
   </footer>
