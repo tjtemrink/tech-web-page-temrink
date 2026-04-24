@@ -1,11 +1,7 @@
 {
   "name": "temrink-translator-api",
   "version": "1.0.0",
-  "description": "Azure Functions API for Temrink site translator (text + image)",
-  "main": "index.js",
-  "engines": {
-    "node": ">=18"
-  },
+  "description": "Azure Functions API for Temrink site translator",
   "dependencies": {
     "sharp": "^0.33.5"
   }
