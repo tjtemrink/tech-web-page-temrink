@@ -3,7 +3,7 @@
 // Originals are stored in data attributes so switching back to English is lossless.
 (function () {
   const API_TEXT = "/api/translate";
-  const API_IMAGE = "/api/translate-image";
+  const API_IMAGE = "/api/translateImage";
 
   const LANGS = [
     { code: "en", label: "English" },
@@ -168,11 +168,12 @@
     const src = img.getAttribute("data-i18n-src") || img.getAttribute("src");
     if (!src) return;
     if (/^data:/i.test(src)) return;
+    const absoluteSrc = new URL(src, window.location.href).href;
     try {
       const resp = await fetch(API_IMAGE, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ imageUrl: src, to, from: "en" })
+        body: JSON.stringify({ imageUrl: absoluteSrc, to, from: "en" })
       });
       if (!resp.ok) return;
       const data = await resp.json();
